@@ -51,7 +51,7 @@ body{
 
 /* ---------- Header ---------- */
 .site-header{
-  background: linear-gradient(90deg, rgba(255,106,0,0.98), rgba(0,178,106,0.95));
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   color: white;
   padding: 18px 0;
   border-radius: 18px;

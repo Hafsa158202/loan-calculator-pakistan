@@ -176,3 +176,45 @@ a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outl
   .header-inner{padding:8px}
   .logo{font-size:1.02rem}
 }
+/* ----- Tab forms hidden by default ----- */
+.loan-form,
+.comparison-form,
+.interest-form,
+.murabaha-form,
+.musharakah-form {
+  display: none;
+}
+
+/* Only active tab visible */
+.loan-form.active,
+.comparison-form.active,
+.interest-form.active,
+.murabaha-form.active,
+.musharakah-form.active {
+  display: block;
+}
+
+/* Tab buttons style */
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #f3f6f9;
+  color: var(--text);
+  transition: var(--transition);
+}
+.tab-btn.active {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: var(--shadow-1);
+   }
+                                                                

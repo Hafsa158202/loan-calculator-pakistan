@@ -142,8 +142,7 @@ input:focus, textarea:focus, select:focus{
 .summary-table th{
   background: linear-gradient(90deg, var(--accent), var(--primary));
   color: #fff;   /* text white rahega header me */
-}
-  color:var(--text); font-weight:700;
+  font-weight:700;
 }
 
 /* ---------- Cards / offer boxes ---------- */

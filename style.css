@@ -6,17 +6,17 @@
 
 /* ------------ Theme variables (edit these to change whole theme) ------------- */
 :root{
-  --primary: #ff6a00;        /* orange */
-  --accent:  #00b26a;        /* green */
-  --bg-grad-1: #fffaf6;
-  --bg-grad-2: #f3fff8;
-  --text: #0f1724;
-  --muted: #6b7280;
+  --primary: #6c63ff;        /* soft purple */
+  --accent:  #00c9a7;        /* teal green */
+  --bg-grad-1: #f9f9ff;      /* very light lavender */
+  --bg-grad-2: #e6fff9;      /* very light mint */
+  --text: #1e293b;           /* dark gray-blue */
+  --muted: #64748b;          /* muted gray */
   --card: #ffffff;
-  --glass: rgba(255,255,255,0.65);
-  --radius: 12px;
-  --shadow-1: 0 6px 20px rgba(4,10,26,0.08);
-  --shadow-2: 0 4px 12px rgba(4,10,26,0.06);
+  --glass: rgba(255,255,255,0.7);
+  --radius: 14px;
+  --shadow-1: 0 6px 24px rgba(0,0,0,0.08);
+  --shadow-2: 0 4px 14px rgba(0,0,0,0.06);
   --max-width: 1100px;
   --header-height: 86px;
   --transition: 240ms cubic-bezier(.2,.9,.3,1);

@@ -1,0 +1,178 @@
+/* === style.css - Orange + Green modern master theme ===
+   Put this file in the root and link from every HTML page:
+   <link rel="stylesheet" href="style.css">
+   To change colors later: edit the :root variables below.
+*/
+
+/* ------------ Theme variables (edit these to change whole theme) ------------- */
+:root{
+  --primary: #ff6a00;        /* orange */
+  --accent:  #00b26a;        /* green */
+  --bg-grad-1: #fffaf6;
+  --bg-grad-2: #f3fff8;
+  --text: #0f1724;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --glass: rgba(255,255,255,0.65);
+  --radius: 12px;
+  --shadow-1: 0 6px 20px rgba(4,10,26,0.08);
+  --shadow-2: 0 4px 12px rgba(4,10,26,0.06);
+  --max-width: 1100px;
+  --header-height: 86px;
+  --transition: 240ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* Dark theme (optional). Toggle with: document.documentElement.setAttribute('data-theme','dark') */
+:root[data-theme="dark"]{
+  --bg-grad-1: #071023;
+  --bg-grad-2: #072a18;
+  --text: #e6f0ea;
+  --muted: #9fb4a9;
+  --card: rgba(8,12,20,0.7);
+  --glass: rgba(255,255,255,0.03);
+  --shadow-1: 0 6px 20px rgba(0,0,0,0.6);
+  --shadow-2: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* ------------- Base layout & fonts --------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0; color:var(--text);
+  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Page wrapper */
+.wrapper{max-width:var(--max-width); margin:18px auto; padding: 0 18px;}
+
+/* ---------- Header ---------- */
+.site-header{
+  background: linear-gradient(90deg, rgba(255,106,0,0.98), rgba(0,178,106,0.95));
+  color: white;
+  padding: 18px 0;
+  border-radius: 18px;
+  box-shadow: var(--shadow-1);
+  margin: 16px auto;
+}
+.header-inner{
+  max-width:var(--max-width);
+  margin:0 auto; display:flex; align-items:center; gap:12px;
+  padding: 6px 18px;
+  justify-content:space-between;
+}
+.logo{
+  font-weight:700; font-size:1.25rem; color:#fff; text-decoration:none;
+  display:flex; align-items:center; gap:10px;
+}
+.logo .badge{background:rgba(255,255,255,0.12); padding:6px 10px; border-radius:8px; font-weight:700}
+
+/* ---------- Navigation ---------- */
+.main-nav{
+  display:flex; gap:8px; align-items:center;
+  flex-wrap:wrap;
+}
+.main-nav .nav-link{
+  text-decoration:none; color: rgba(255,255,255,0.95);
+  padding:10px 14px; border-radius:10px; font-weight:600; font-size:0.98rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: var(--transition);
+}
+.main-nav .nav-link:hover{ transform:translateY(-2px); box-shadow: var(--shadow-2) }
+.main-nav .nav-link.active{
+  background: #fff; color: var(--text);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Header controls (theme toggle + mobile) */
+.header-controls{display:flex;gap:8px; align-items:center;}
+.theme-toggle, .nav-toggle{
+  background:rgba(255,255,255,0.12); border:0; padding:8px 10px; border-radius:9px;
+  color:#fff; cursor:pointer; font-size:16px;
+  transition:var(--transition);
+}
+.theme-toggle:hover, .nav-toggle:hover{ transform:translateY(-2px) }
+
+/* ---------- Container/Card ---------- */
+.container{
+  background: var(--card);
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+}
+
+/* Grid helpers */
+.grid{display:grid; gap:16px}
+.grid.cols-2{grid-template-columns: 1fr 1fr}
+@media (max-width:900px){ .grid.cols-2{grid-template-columns:1fr} }
+
+/* ---------- Form elements ---------- */
+label{display:block; margin-bottom:6px; color:var(--text); font-weight:600}
+input[type="number"], input[type="text"], input[type="email"], select, textarea{
+  width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e6ecf0; font-size:15px;
+  background: linear-gradient(180deg, rgba(250,250,252,1), rgba(245,247,250,1));
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+input:focus, textarea:focus, select:focus{
+  outline:none; border-color: rgba(0,178,106,0.9); box-shadow: 0 6px 18px rgba(0,178,106,0.06);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:10px; border:0; cursor:pointer;
+  font-weight:700; font-size:15px; color:#fff; transition: var(--transition);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+}
+.btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.18) }
+.btn.secondary{
+  background:transparent; color:var(--text); border:1px solid #e6ecf0;
+}
+
+/* ---------- Result table / summary ---------- */
+.summary-table{width:100%; border-collapse:collapse; margin-top:12px; font-size:15px}
+.summary-table th, .summary-table td{
+  padding:10px 12px; border:1px solid #eef3f6; text-align:left;
+}
+.summary-table th{
+  background: linear-gradient(90deg, rgba(0,178,106,0.12), rgba(255,106,0,0.08));
+  color:var(--text); font-weight:700;
+}
+
+/* ---------- Cards / offer boxes ---------- */
+.card{
+  padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));
+  box-shadow:var(--shadow-2); border:1px solid rgba(10,10,10,0.02);
+}
+
+/* ---------- Small helpers ---------- */
+.kicker{font-weight:700; color:var(--muted); font-size:13px}
+.h-xl{font-size:1.5rem; font-weight:700}
+.lead{color:var(--muted); margin-top:6px}
+
+/* ---------- Footer ---------- */
+.site-footer{margin-top:26px; padding:18px; text-align:center; color:var(--muted); font-size:14px}
+
+/* ---------- Responsive nav: mobile ---------- */
+.nav-toggle{display:none}
+@media (max-width:880px){
+  .main-nav{ position:fixed; right:14px; top:86px; background:var(--card); flex-direction:column; padding:12px; border-radius:10px;
+             transform: translateY(-8px); box-shadow:var(--shadow-1); display:none; min-width:200px;}
+  .main-nav.open{ display:flex; }
+  .nav-toggle{display:inline-flex}
+  .header-inner{gap:8px}
+}
+
+/* accessibility focus */
+a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outline-offset:3px}
+
+/* small screens adjust container */
+@media (max-width:520px){
+  .header-inner{padding:8px}
+  .logo{font-size:1.02rem}
+}

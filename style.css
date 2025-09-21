@@ -245,5 +245,26 @@ a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outl
 .feature-card img { height: 64px; margin-bottom: 12px; }
 .feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
 .feature-card p { font-size: 0.95rem; color: var(--muted); }
+/* Navigation Bar Fix */
+.main-nav {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;
+}
+
+.main-nav .nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  background: #6c63ff; /* lavender accent */
+  color: #fff;
+}
 
                                                                 

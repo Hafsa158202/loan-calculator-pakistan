@@ -12,19 +12,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Pakistan Smart Loan Suite</h1>
-    <p>All-in-one: Car, Home, Personal Loan Calculator, Offer Comparison, Flat vs Reducing, Murabaha & Diminishing Musharakah</p>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="badge">PK</span> Smart Loan Suite</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+      </nav>
+    </div>
   </header>
-  <!-- Mandatory navigation bar only -->
-  <nav>
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="about.html" class="nav-link">About Us</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="privacy.html" class="nav-link">Privacy Policy</a>
-    <a href="disclaimer.html" class="nav-link">Disclaimer</a>
-  </nav>
-  <div class="container">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Smarter Loan Decisions for Pakistan</h1>
+    <p>Calculate EMI, compare banks, explore Islamic finance — all in one place.</p>
+    <a href="#calculators" class="btn">Start Calculating</a>
+    <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/512/external-loan-banking-flaticons-flat-flat-icons.png" alt="Loan illustration">
+  </section>
+
+  <!-- DASHBOARD CARDS -->
+  <section class="features wrapper">
+    <div class="feature-card">
+      <img src="https://img.icons8.com/color/96/car.png" alt="Car Loan">
+      <h3>Car Loan</h3>
+      <p>Find your monthly car installments quickly.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://img.icons8.com/color/96/home.png" alt="Home Loan">
+      <h3>Home Loan</h3>
+      <p>Plan home financing with ease and accuracy.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://img.icons8.com/color/96/money.png" alt="Personal Loan">
+      <h3>Personal Loan</h3>
+      <p>Compare and calculate flexible personal loans.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://img.icons8.com/color/96/mosque.png" alt="Islamic Finance">
+      <h3>Islamic Finance</h3>
+      <p>Murabaha & Musharakah calculators for Shariah compliance.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATORS -->
+  <div id="calculators" class="container">
+    <!-- Tab Buttons -->
     <div class="tab-buttons">
       <button class="tab-btn active" onclick="showTab('car')">Car Loan</button>
       <button class="tab-btn" onclick="showTab('home')">Home Loan</button>
@@ -35,452 +71,193 @@
       <button class="tab-btn" onclick="showTab('musharakah')">Musharakah</button>
     </div>
 
-    <!-- Car Loan Form -->
-    <form id="form-car" class="loan-form active" onsubmit="event.preventDefault(); calcLoan('car')">
-      <h2>Car Loan EMI Calculator</h2>
-      <label>Car Price (PKR):</label>
-      <input id="car-loan" type="number" min="0" placeholder="e.g. 1,500,000" autocomplete="off">
-      <label>Down Payment (PKR):</label>
-      <input id="car-down" type="number" min="0" placeholder="e.g. 200,000" autocomplete="off">
-      <label>Annual Interest Rate (%):</label>
-      <input id="car-rate" type="number" min="0" max="100" placeholder="e.g. 12" autocomplete="off">
-      <label>Loan Term (Years):</label>
-      <input id="car-years" type="number" min="1" max="15" placeholder="e.g. 5" autocomplete="off">
-      <div>
-        <button class="btn-main" type="submit">Calculate Car EMI</button>
-        <button class="btn-reset" type="button" onclick="resetForm('car')">Reset</button>
-      </div>
-      <div id="car-result" class="result"></div>
-    </form>
-
-    <!-- Home Loan Form -->
-    <form id="form-home" class="loan-form" onsubmit="event.preventDefault(); calcLoan('home')">
-      <h2>Home Loan EMI Calculator</h2>
-      <label>Home Price (PKR):</label>
-      <input id="home-loan" type="number" min="0" placeholder="e.g. 10,000,000">
-      <label>Down Payment (PKR):</label>
-      <input id="home-down" type="number" min="0" placeholder="e.g. 2,000,000">
-      <label>Annual Interest Rate (%):</label>
-      <input id="home-rate" type="number" min="0" max="100" placeholder="e.g. 10">
-      <label>Loan Term (Years):</label>
-      <input id="home-years" type="number" min="1" max="30" placeholder="e.g. 20">
-      <div>
-        <button class="btn-main" type="submit">Calculate Home EMI</button>
-        <button class="btn-reset" type="button" onclick="resetForm('home')">Reset</button>
-      </div>
-      <div id="home-result" class="result"></div>
-    </form>
-
-    <!-- Personal Loan Form -->
-    <form id="form-personal" class="loan-form" onsubmit="event.preventDefault(); calcLoan('personal')">
-      <h2>Personal Loan EMI Calculator</h2>
-      <label>Loan Amount (PKR):</label>
-      <input id="personal-loan" type="number" min="0" placeholder="e.g. 500,000">
-      <label>Annual Interest Rate (%):</label>
-      <input id="personal-rate" type="number" min="0" max="100" placeholder="e.g. 15">
-      <label>Loan Term (Years):</label>
-      <input id="personal-years" type="number" min="1" max="10" placeholder="e.g. 3">
-      <div>
-        <button class="btn-main" type="submit">Calculate Personal EMI</button>
-        <button class="btn-reset" type="button" onclick="resetForm('personal')">Reset</button>
-      </div>
-      <div id="personal-result" class="result"></div>
-    </form>
-
-    <!-- Loan Comparison -->
-    <div id="form-compare" class="comparison-form">
-      <h2>Loan Comparison (Pakistan)</h2>
-      <p style="color:#446; margin-bottom:10px;">Enter loan amount and term, add up to 6 bank offers (annual rate %). Click Calculate to compare EMIs and total cost.</p>
-      <div style="display:flex; gap:2%; flex-wrap:wrap;">
-        <div style="flex:1 1 210px;">
-          <label>Loan Amount (PKR)</label>
-          <input id="principal" type="number" min="1" value="1000000">
-        </div>
-        <div style="flex:1 1 120px;">
-          <label>Loan Term (Years)</label>
-          <input id="years" type="number" min="1" max="40" value="5">
-        </div>
-      </div>
-      <div id="offers" style="margin-top:14px;">
-        <!-- Offers will be inserted here -->
-      </div>
-      <div style="display:flex;gap:3px;margin-top:10px;">
-        <button class="btn-main" style="width:50%;" id="add-offer" type="button">Add another offer</button>
-        <button class="btn-reset" style="width:49%;" type="button" onclick="resetComparison()">Clear All</button>
-      </div>
-      <button class="btn-main" style="margin-top:8px;" id="calc" type="button">Calculate Comparison</button>
-      <div id="out" class="result"></div>
-      <div class="info-box" style="margin-top:18px;">
-        <b>Note:</b> For Islamic products like Murabaha/Ijarah, the "annual rate" here is illustrative — confirm markup/profit from bank site.
-      </div>
-    </div>
-
-    <!-- Flat vs Reducing Balance -->
-    <form id="form-interest" class="interest-form" onsubmit="event.preventDefault(); compareInterest()">
-      <h2>Flat Rate vs Reducing Balance Comparison</h2>
+    <!-- CAR LOAN -->
+    <form id="carForm" class="loan-form active">
+      <h2>Car Loan Calculator</h2>
       <label>Loan Amount (PKR)</label>
-      <input id="P" type="number" min="1" value="1000000" placeholder="e.g. 1,000,000">
-      <label>Annual Interest / Markup (%)</label>
-      <input id="R" type="number" min="0" max="100" value="12" placeholder="e.g. 12">
-      <label>Loan Term (Years)</label>
-      <input id="Y" type="number" min="1" max="40" value="5" placeholder="e.g. 5">
-      <div>
-        <button class="btn-main" type="submit">Compare</button>
-        <button class="btn-reset" type="button" onclick="resetInterest()">Reset</button>
-      </div>
-      <div id="interest-out" class="result"></div>
-      <div class="info-box">
-        <b>Flat rate</b> calculation uses simple flat interest on original principal.<br>
-        <b>Reducing balance</b> uses monthly compounding (like standard EMI).<br>
-        <span style="color:#005ab6;font-weight:500;">Tip:</span> Reducing balance is the method used by most banks for personal, car, and home loans.
-      </div>
+      <input type="number" id="carAmount" required>
+      <label>Interest Rate (%)</label>
+      <input type="number" id="carRate" step="0.01" required>
+      <label>Loan Tenure (Years)</label>
+      <input type="number" id="carYears" required>
+      <button type="button" onclick="calcLoan('car')" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('carForm')" class="btn secondary">Reset</button>
+      <div id="carResult"></div>
     </form>
 
-    <!-- Murabaha Islamic Calculator -->
-    <form id="form-murabaha" class="murabaha-form" onsubmit="event.preventDefault(); calcMurabaha()">
-      <h2>Murabaha (Cost+Profit) Calculator (Islamic)</h2>
-      <label>Asset Cost (PKR)</label>
-      <input id="murabaha-cost" type="number" min="1" value="1000000" placeholder="e.g. 1,000,000">
-      <label>Profit Rate (annual %) — agreed markup</label>
-      <input id="murabaha-rate" type="number" min="0" max="100" value="8" placeholder="e.g. 8">
-      <label>Term (years)</label>
-      <input id="murabaha-years" type="number" min="1" max="40" value="5" placeholder="e.g. 5">
-      <div>
-        <button class="btn-main" type="submit">Calculate</button>
-        <button class="btn-reset" type="button" onclick="resetMurabaha()">Reset</button>
-      </div>
-      <div id="murabaha-out" class="result"></div>
-      <div class="info-box">
-        Murabaha monthly = (cost + total_profit) / months.<br>
-        <b>Note:</b> Confirm bank's profit calculation method on their product page.
-      </div>
+    <!-- HOME LOAN -->
+    <form id="homeForm" class="loan-form">
+      <h2>Home Loan Calculator</h2>
+      <label>Loan Amount (PKR)</label>
+      <input type="number" id="homeAmount" required>
+      <label>Interest Rate (%)</label>
+      <input type="number" id="homeRate" step="0.01" required>
+      <label>Loan Tenure (Years)</label>
+      <input type="number" id="homeYears" required>
+      <button type="button" onclick="calcLoan('home')" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('homeForm')" class="btn secondary">Reset</button>
+      <div id="homeResult"></div>
     </form>
 
-    <!-- Diminishing Musharakah Calculator -->
-    <form id="form-musharakah" class="musharakah-form" onsubmit="event.preventDefault(); calcMusharakah()">
-      <h2>Diminishing Musharakah (approx.)</h2>
-      <label>Asset Price / Bank Share (PKR)</label>
-      <input id="musharakah-P" type="number" min="1" value="1000000" placeholder="e.g. 1,000,000">
-      <label>Annual Profit Rate (%)</label>
-      <input id="musharakah-R" type="number" min="0" max="100" value="10" placeholder="e.g. 10">
-      <label>Years</label>
-      <input id="musharakah-Y" type="number" min="1" max="40" value="5" placeholder="e.g. 5">
-      <div>
-        <button class="btn-main" type="submit">Calculate</button>
-        <button class="btn-reset" type="button" onclick="resetMusharakah()">Reset</button>
-      </div>
-      <div id="musharakah-out" class="result"></div>
-      <div class="info-box">
-        This model approximates monthly payment using reducing-balance formula (EMI).<br>
-        <b>Note:</b> Confirm exact structure with bank (rent + principal buyout schedule).
-      </div>
+    <!-- PERSONAL LOAN -->
+    <form id="personalForm" class="loan-form">
+      <h2>Personal Loan Calculator</h2>
+      <label>Loan Amount (PKR)</label>
+      <input type="number" id="personalAmount" required>
+      <label>Interest Rate (%)</label>
+      <input type="number" id="personalRate" step="0.01" required>
+      <label>Loan Tenure (Years)</label>
+      <input type="number" id="personalYears" required>
+      <button type="button" onclick="calcLoan('personal')" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('personalForm')" class="btn secondary">Reset</button>
+      <div id="personalResult"></div>
+    </form>
+
+    <!-- LOAN COMPARISON -->
+    <form id="compareForm" class="comparison-form">
+      <h2>Loan Comparison Tool</h2>
+      <label>Bank A - Interest Rate (%)</label>
+      <input type="number" id="rateA" step="0.01" required>
+      <label>Bank B - Interest Rate (%)</label>
+      <input type="number" id="rateB" step="0.01" required>
+      <label>Loan Amount (PKR)</label>
+      <input type="number" id="compAmount" required>
+      <label>Loan Tenure (Years)</label>
+      <input type="number" id="compYears" required>
+      <button type="button" onclick="compareLoans()" class="btn">Compare</button>
+      <button type="button" onclick="resetForm('compareForm')" class="btn secondary">Reset</button>
+      <div id="compareResult"></div>
+    </form>
+
+    <!-- INTEREST TYPE -->
+    <form id="interestForm" class="interest-form">
+      <h2>Flat vs Reducing Balance Calculator</h2>
+      <label>Loan Amount (PKR)</label>
+      <input type="number" id="intAmount" required>
+      <label>Interest Rate (%)</label>
+      <input type="number" id="intRate" step="0.01" required>
+      <label>Loan Tenure (Years)</label>
+      <input type="number" id="intYears" required>
+      <button type="button" onclick="calcInterest()" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('interestForm')" class="btn secondary">Reset</button>
+      <div id="intResult"></div>
+    </form>
+
+    <!-- MURABAHA -->
+    <form id="murabahaForm" class="murabaha-form">
+      <h2>Islamic Murabaha Calculator</h2>
+      <label>Purchase Price (PKR)</label>
+      <input type="number" id="murabahaPrice" required>
+      <label>Profit Rate (%)</label>
+      <input type="number" id="murabahaRate" step="0.01" required>
+      <label>Tenure (Years)</label>
+      <input type="number" id="murabahaYears" required>
+      <button type="button" onclick="calcMurabaha()" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('murabahaForm')" class="btn secondary">Reset</button>
+      <div id="murabahaResult"></div>
+    </form>
+
+    <!-- MUSHARAKAH -->
+    <form id="musharakahForm" class="musharakah-form">
+      <h2>Diminishing Musharakah Calculator</h2>
+      <label>Total Property Price (PKR)</label>
+      <input type="number" id="musharakahPrice" required>
+      <label>Bank Share (%)</label>
+      <input type="number" id="musharakahShare" step="0.01" required>
+      <label>Rent Rate (%)</label>
+      <input type="number" id="musharakahRent" step="0.01" required>
+      <label>Tenure (Years)</label>
+      <input type="number" id="musharakahYears" required>
+      <button type="button" onclick="calcMusharakah()" class="btn">Calculate</button>
+      <button type="button" onclick="resetForm('musharakahForm')" class="btn secondary">Reset</button>
+      <div id="musharakahResult"></div>
     </form>
   </div>
-  <footer style="text-align:center; margin-top:44px; padding:18px; background:#e8f2fa; color:#444; font-size:15px; border-top:1px solid #e1e6ea;">
+
+  <!-- CTA FOOTER -->
+  <section class="cta-footer">
+    <h2>Ready to Plan Your Loan?</h2>
+    <p>Use Pakistan’s most comprehensive loan calculator suite today.</p>
+    <a href="#calculators" class="btn">Calculate Now</a>
+    <div class="footer-icons">
+      <span>🚗</span>
+      <span>🏠</span>
+      <span>💳</span>
+      <span>☪️</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <span>© 2025 Pakistan Smart Loan Suite | Not financial advice | Built for productivity</span>
   </footer>
+
+  <!-- JAVASCRIPT -->
   <script>
-    // TAB SWITCHING
-    function showTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.loan-form, .comparison-form, .interest-form, .murabaha-form, .musharakah-form').forEach(form => form.classList.remove('active'));
-      if(tab==='compare') {
-        document.querySelectorAll('.tab-btn')[3].classList.add('active');
-        document.getElementById('form-compare').classList.add('active');
-      } else if(tab==='car') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('form-car').classList.add('active');
-      } else if(tab==='home') {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('form-home').classList.add('active');
-      } else if(tab==='personal') {
-        document.querySelectorAll('.tab-btn')[2].classList.add('active');
-        document.getElementById('form-personal').classList.add('active');
-      } else if(tab==='interest') {
-        document.querySelectorAll('.tab-btn')[4].classList.add('active');
-        document.getElementById('form-interest').classList.add('active');
-      } else if(tab==='murabaha') {
-        document.querySelectorAll('.tab-btn')[5].classList.add('active');
-        document.getElementById('form-murabaha').classList.add('active');
-      } else if(tab==='musharakah') {
-        document.querySelectorAll('.tab-btn')[6].classList.add('active');
-        document.getElementById('form-musharakah').classList.add('active');
-      }
-      window.scrollTo({top: 0, behavior: 'smooth'});
+    function showTab(tab){
+      document.querySelectorAll('.loan-form,.comparison-form,.interest-form,.murabaha-form,.musharakah-form').forEach(f=>f.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      if(tab==='car') document.getElementById('carForm').classList.add('active');
+      if(tab==='home') document.getElementById('homeForm').classList.add('active');
+      if(tab==='personal') document.getElementById('personalForm').classList.add('active');
+      if(tab==='compare') document.getElementById('compareForm').classList.add('active');
+      if(tab==='interest') document.getElementById('interestForm').classList.add('active');
+      if(tab==='murabaha') document.getElementById('murabahaForm').classList.add('active');
+      if(tab==='musharakah') document.getElementById('musharakahForm').classList.add('active');
+      event.target.classList.add('active');
     }
 
-    // EMI CALCULATOR
     function calcLoan(type){
-      let price=0, down=0, rate=0, years=0, p=0, r=0, n=0, emi=0;
-      let errorDiv = document.getElementById(type+'-result');
-      errorDiv.innerHTML = '';
-      if(type==='car'){
-        price = parseFloat(document.getElementById('car-loan').value);
-        down = parseFloat(document.getElementById('car-down').value)||0;
-        rate = parseFloat(document.getElementById('car-rate').value);
-        years = parseFloat(document.getElementById('car-years').value);
-        p = price - down;
-        r = rate/100/12;
-        n = years*12;
-      } else if(type==='home'){
-        price = parseFloat(document.getElementById('home-loan').value);
-        down = parseFloat(document.getElementById('home-down').value)||0;
-        rate = parseFloat(document.getElementById('home-rate').value);
-        years = parseFloat(document.getElementById('home-years').value);
-        p = price - down;
-        r = rate/100/12;
-        n = years*12;
-      } else if(type==='personal'){
-        p = parseFloat(document.getElementById('personal-loan').value);
-        r = parseFloat(document.getElementById('personal-rate').value)/100/12;
-        n = parseFloat(document.getElementById('personal-years').value)*12;
-      }
-      // Validation
-      if(isNaN(p)||p<=0||isNaN(r)||r<0||isNaN(n)||n<=0){
-        errorDiv.innerHTML = '<span style="color:#b8002d;">Please enter valid values for all fields.</span>';
-        return;
-      }
-      if(r===0) {
-        emi = p/n;
-      } else {
-        emi = p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-      }
-      let total = emi*n;
-      let summary = `<table class="summary-table">
-        <tr><th>Loan Amount</th><td>PKR ${p.toLocaleString()}</td></tr>
-        <tr><th>Interest Rate</th><td>${(r*12*100).toFixed(2)}%</td></tr>
-        <tr><th>Term</th><td>${(n/12).toLocaleString()} years / ${n.toLocaleString()} months</td></tr>
-        <tr><th>Monthly EMI</th><td style="color:#0077cc"><b>PKR ${emi.toFixed(0)}</b></td></tr>
-        <tr><th>Total Payment</th><td>PKR ${total.toFixed(0)}</td></tr>
-        <tr><th>Total Interest</th><td>PKR ${(total-p).toFixed(0)}</td></tr>
-      </table>`;
-      errorDiv.innerHTML = summary;
+      let amount=parseFloat(document.getElementById(type+'Amount').value);
+      let rate=parseFloat(document.getElementById(type+'Rate').value)/100/12;
+      let years=parseFloat(document.getElementById(type+'Years').value)*12;
+      if(isNaN(amount)||isNaN(rate)||isNaN(years)) return;
+      let emi=amount*rate*Math.pow(1+rate,years)/(Math.pow(1+rate,years)-1);
+      document.getElementById(type+'Result').innerHTML=`<p><b>Monthly EMI:</b> PKR ${emi.toFixed(2)}</p>`;
     }
 
-    function resetForm(type){
-      if(type==='car'){
-        document.getElementById('car-loan').value = '';
-        document.getElementById('car-down').value = '';
-        document.getElementById('car-rate').value = '';
-        document.getElementById('car-years').value = '';
-        document.getElementById('car-result').innerHTML = '';
-      } else if(type==='home'){
-        document.getElementById('home-loan').value = '';
-        document.getElementById('home-down').value = '';
-        document.getElementById('home-rate').value = '';
-        document.getElementById('home-years').value = '';
-        document.getElementById('home-result').innerHTML = '';
-      } else if(type==='personal'){
-        document.getElementById('personal-loan').value = '';
-        document.getElementById('personal-rate').value = '';
-        document.getElementById('personal-years').value = '';
-        document.getElementById('personal-result').innerHTML = '';
-      }
+    function resetForm(id){document.getElementById(id).reset();document.querySelector('#'+id+' div').innerHTML="";}
+
+    function compareLoans(){
+      let rateA=parseFloat(document.getElementById('rateA').value)/100/12;
+      let rateB=parseFloat(document.getElementById('rateB').value)/100/12;
+      let amount=parseFloat(document.getElementById('compAmount').value);
+      let months=parseFloat(document.getElementById('compYears').value)*12;
+      let emiA=amount*rateA*Math.pow(1+rateA,months)/(Math.pow(1+rateA,months)-1);
+      let emiB=amount*rateB*Math.pow(1+rateB,months)/(Math.pow(1+rateB,months)-1);
+      document.getElementById('compareResult').innerHTML=`<p>Bank A EMI: PKR ${emiA.toFixed(2)}<br>Bank B EMI: PKR ${emiB.toFixed(2)}</p>`;
     }
 
-    // COMPARISON TOOL
-    let offerLimit = 6;
-    function initOffers() {
-      const offersDiv = document.getElementById('offers');
-      offersDiv.innerHTML = '';
-      const offers = [
-        {name: "Meezan Bank - Diminishing (example)", rate: 12},
-        {name: "HBL - Car Loan (example)", rate: 13},
-        {name: "Bank Alfalah (example)", rate: 14}
-      ];
-      offers.forEach((of, idx) => addOfferRow(of.name, of.rate, idx<3));
-    }
-    function addOfferRow(name, rate, defaultOffer) {
-      const offersDiv = document.getElementById('offers');
-      let offerCount = offersDiv.querySelectorAll('.offer-card').length;
-      if(offerCount >= offerLimit) return;
-      let offerBox = document.createElement('div');
-      offerBox.className = 'offer-card';
-      offerBox.innerHTML = `
-        <button class="remove-offer-btn" title="Remove this offer" onclick="removeOffer(this)" ${defaultOffer?'style="display:none"':''}">&times;</button>
-        <label>Bank / Offer Name</label>
-        <input class="bname" type="text" value="${name||'New Bank'}">
-        <label>Annual Rate (%)</label>
-        <input class="brate" type="number" min="0" max="100" value="${rate||12}">
-      `;
-      offersDiv.appendChild(offerBox);
-    }
-    function removeOffer(btn) {
-      btn.parentElement.remove();
-    }
-    document.getElementById('add-offer').onclick = function() {
-      let offersDiv = document.getElementById('offers');
-      if(offersDiv.querySelectorAll('.offer-card').length < offerLimit)
-        addOfferRow('', 12, false);
-    };
-
-    function resetComparison() {
-      initOffers();
-      document.getElementById('principal').value = 1000000;
-      document.getElementById('years').value = 5;
-      document.getElementById('out').innerHTML = '';
+    function calcInterest(){
+      let amount=parseFloat(document.getElementById('intAmount').value);
+      let rate=parseFloat(document.getElementById('intRate').value)/100;
+      let years=parseFloat(document.getElementById('intYears').value);
+      let flat=(amount+amount*rate*years)/(years*12);
+      let r=rate/12, n=years*12;
+      let reducing=amount*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+      document.getElementById('intResult').innerHTML=`<p>Flat EMI: PKR ${flat.toFixed(2)}<br>Reducing EMI: PKR ${reducing.toFixed(2)}</p>`;
     }
 
-    function emiFor(principal, annualRatePercent, years){
-      const r = (annualRatePercent/100)/12;
-      const n = years*12;
-      if(r===0) return {emi: principal/n, total: principal, totalInterest:0};
-      const emi = principal * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
-      const total = emi * n;
-      return {emi, total, totalInterest: total - principal};
+    function calcMurabaha(){
+      let price=parseFloat(document.getElementById('murabahaPrice').value);
+      let profit=parseFloat(document.getElementById('murabahaRate').value)/100;
+      let years=parseFloat(document.getElementById('murabahaYears').value);
+      let total=price+price*profit*years;
+      let emi=total/(years*12);
+      document.getElementById('murabahaResult').innerHTML=`<p>Total Payable: PKR ${total.toFixed(2)}<br>Monthly Installment: PKR ${emi.toFixed(2)}</p>`;
     }
 
-    document.getElementById('calc').onclick = function() {
-      const P = parseFloat(document.getElementById('principal').value)||0;
-      const years = parseFloat(document.getElementById('years').value)||0;
-      const names = Array.from(document.getElementsByClassName('bname')).map(i=>i.value.trim());
-      const rates = Array.from(document.getElementsByClassName('brate')).map(i=>parseFloat(i.value||0));
-      if(!P||!years||P<=0||years<=0){ alert('Enter valid loan amount and term'); return; }
-      let html = '<table class="comparison-table"><thead><tr><th>Bank / Offer</th><th>Annual Rate (%)</th><th>Monthly EMI (PKR)</th><th>Total Payment (PKR)</th><th>Total Interest (PKR)</th></tr></thead><tbody>';
-      let valid = false;
-      for(let i=0;i<names.length;i++){
-        const r = rates[i]||0;
-        if(!names[i] || r<0 || r>100) continue;
-        valid = true;
-        const res = emiFor(P, r, years);
-        html += `<tr>
-        <td>${names[i]}</td>
-        <td>${r.toFixed(2)}</td>
-        <td style="color:#0077cc;font-weight:600;">${res.emi.toFixed(0)}</td>
-        <td>${res.total.toFixed(0)}</td>
-        <td>${res.totalInterest.toFixed(0)}</td>
-        </tr>`;
-      }
-      html += '</tbody></table>';
-      document.getElementById('out').innerHTML = valid ? html : '<span style="color:#b8002d;">Please enter at least one valid offer.</span>';
-    };
-
-    // FLAT VS REDUCING BALANCE
-    function flatTotal(P, R, Y) {
-      const totalInterest = P * (R / 100) * Y;
-      const totalPayment = P + totalInterest;
-      const monthly = totalPayment / (Y * 12);
-      return { monthly, totalPayment, totalInterest };
+    function calcMusharakah(){
+      let price=parseFloat(document.getElementById('musharakahPrice').value);
+      let share=parseFloat(document.getElementById('musharakahShare').value)/100;
+      let rent=parseFloat(document.getElementById('musharakahRent').value)/100;
+      let years=parseFloat(document.getElementById('musharakahYears').value);
+      let bankShare=price*share;
+      let monthlyRent=bankShare*rent/12;
+      let total=monthlyRent*years*12+bankShare;
+      document.getElementById('musharakahResult').innerHTML=`<p>Total Payable: PKR ${total.toFixed(2)}<br>Monthly Rent+Equity: PKR ${(total/(years*12)).toFixed(2)}</p>`;
     }
-    function reducing(P, R, Y) {
-      const r = (R / 100) / 12;
-      const n = Y * 12;
-      if (r === 0) {
-        return {
-          monthly: P / n,
-          totalPayment: P,
-          totalInterest: 0
-        };
-      }
-      const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-      const total = emi * n;
-      return { monthly: emi, totalPayment: total, totalInterest: total - P };
-    }
-    function compareInterest() {
-      const P = parseFloat(document.getElementById('P').value) || 0;
-      const R = parseFloat(document.getElementById('R').value) || 0;
-      const Y = parseFloat(document.getElementById('Y').value) || 0;
-      let outDiv = document.getElementById('interest-out');
-      if (!P || !R || !Y) {
-        outDiv.innerHTML = '<span style="color:#b8002d;">Please enter all values.</span>';
-        return;
-      }
-      const f = flatTotal(P, R, Y), r = reducing(P, R, Y);
-      outDiv.innerHTML = `<table>
-        <tr><th>Method</th><th>Monthly Installment</th><th>Total Payment</th><th>Total Interest</th></tr>
-        <tr><td>Flat Rate</td><td>PKR ${f.monthly.toFixed(0)}</td><td>PKR ${f.totalPayment.toFixed(0)}</td><td>PKR ${f.totalInterest.toFixed(0)}</td></tr>
-        <tr><td>Reducing Balance</td><td style="color:#0077cc;font-weight:600;">PKR ${r.monthly.toFixed(0)}</td><td>PKR ${r.totalPayment.toFixed(0)}</td><td>PKR ${r.totalInterest.toFixed(0)}</td></tr>
-        </table>`;
-    }
-    function resetInterest() {
-      document.getElementById('P').value = 1000000;
-      document.getElementById('R').value = 12;
-      document.getElementById('Y').value = 5;
-      document.getElementById('interest-out').innerHTML = '';
-    }
-
-    // Murabaha Islamic Calculator
-    function calcMurabaha() {
-      const cost = parseFloat(document.getElementById('murabaha-cost').value)||0;
-      const rate = parseFloat(document.getElementById('murabaha-rate').value)||0;
-      const years = parseFloat(document.getElementById('murabaha-years').value)||0;
-      let outDiv = document.getElementById('murabaha-out');
-      if(!cost||!years) {
-        outDiv.innerHTML = '<span style="color:#b8002d;">Enter values for cost and years.</span>';
-        return;
-      }
-      const totalProfit = cost * (rate/100) * years;
-      const totalPayable = cost + totalProfit;
-      const months = years*12;
-      const monthly = totalPayable / months;
-      outDiv.innerHTML =
-        `<table class="summary-table">
-          <tr><th>Total Payable</th><td>PKR ${totalPayable.toFixed(0)}</td></tr>
-          <tr><th>Monthly Installment</th><td style="color:#006400"><b>PKR ${monthly.toFixed(0)}</b></td></tr>
-          <tr><th>Total Profit</th><td>PKR ${totalProfit.toFixed(0)}</td></tr>
-        </table>`;
-    }
-    function resetMurabaha() {
-      document.getElementById('murabaha-cost').value = 1000000;
-      document.getElementById('murabaha-rate').value = 8;
-      document.getElementById('murabaha-years').value = 5;
-      document.getElementById('murabaha-out').innerHTML = '';
-    }
-
-    // Diminishing Musharakah Calculator
-    function calcMusharakah() {
-      const P = parseFloat(document.getElementById('musharakah-P').value)||0;
-      const R = parseFloat(document.getElementById('musharakah-R').value)||0;
-      const Y = parseFloat(document.getElementById('musharakah-Y').value)||0;
-      let outDiv = document.getElementById('musharakah-out');
-      if(!P||!R||!Y) {
-        outDiv.innerHTML = '<span style="color:#b8002d;">Enter values for asset price, profit rate, and years.</span>';
-        return;
-      }
-      const r = (R/100)/12;
-      const n = Y*12;
-      let monthly, total, interest;
-      if(r===0) {
-        monthly = P/n;
-        total = P;
-        interest = 0;
-      } else {
-        monthly = P * r * Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-        total = monthly * n;
-        interest = total - P;
-      }
-      outDiv.innerHTML =
-        `<table class="summary-table">
-          <tr><th>Monthly Payment (approx)</th><td style="color:#b35900"><b>PKR ${monthly.toFixed(0)}</b></td></tr>
-          <tr><th>Total Payable</th><td>PKR ${total.toFixed(0)}</td></tr>
-          <tr><th>Total Profit</th><td>PKR ${interest.toFixed(0)}</td></tr>
-        </table>`;
-    }
-    function resetMusharakah() {
-      document.getElementById('musharakah-P').value = 1000000;
-      document.getElementById('musharakah-R').value = 10;
-      document.getElementById('musharakah-Y').value = 5;
-      document.getElementById('musharakah-out').innerHTML = '';
-    }
-
-    // Initial setup for Comparison
-    initOffers();
-
-    // Keyboard navigation for accessibility
-    document.querySelectorAll('input').forEach(inp => {
-      inp.addEventListener('keydown', function(e) {
-        if(e.key==='Enter' && this.form) {
-          e.preventDefault();
-          let formId = this.form.id;
-          if(formId==='form-car') calcLoan('car');
-          else if(formId==='form-home') calcLoan('home');
-          else if(formId==='form-personal') calcLoan('personal');
-          else if(formId==='form-interest') compareInterest();
-          else if(formId==='form-murabaha') calcMurabaha();
-          else if(formId==='form-musharakah') calcMusharakah();
-        }
-      });
-    });
   </script>
 </body>
 </html>
+

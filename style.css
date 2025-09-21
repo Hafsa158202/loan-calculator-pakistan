@@ -155,15 +155,6 @@ input:focus, textarea:focus, select:focus{
 /* ---------- Footer ---------- */
 .site-footer{margin-top:26px; padding:18px; text-align:center; color:var(--muted); font-size:14px}
 
-/* ---------- Responsive nav ---------- */
-.nav-toggle{display:none}
-@media (max-width:880px){
-  .main-nav{ position:fixed; right:14px; top:86px; background:var(--card); flex-direction:column; padding:12px; border-radius:10px;
-             transform: translateY(-8px); box-shadow:var(--shadow-1); display:none; min-width:200px;}
-  .main-nav.open{ display:flex; }
-  .nav-toggle{display:inline-flex}
-  .header-inner{gap:8px}
-}
 
 /* accessibility focus */
 a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outline-offset:3px}

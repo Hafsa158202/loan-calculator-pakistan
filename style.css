@@ -1,17 +1,17 @@
-/* === style.css - Orange + Green modern master theme ===
+/* === style.css - Lavender + Mint + Sky Blue modern master theme ===
    Put this file in the root and link from every HTML page:
    <link rel="stylesheet" href="style.css">
    To change colors later: edit the :root variables below.
 */
 
-/* ------------ Theme variables (edit these to change whole theme) ------------- */
+/* ------------ Theme variables ------------- */
 :root{
-  --primary: #6c63ff;        /* soft purple */
-  --accent:  #00c9a7;        /* teal green */
-  --bg-grad-1: #f9f9ff;      /* very light lavender */
-  --bg-grad-2: #e6fff9;      /* very light mint */
-  --text: #1e293b;           /* dark gray-blue */
-  --muted: #64748b;          /* muted gray */
+  --primary: #7c4dff;        /* lavender purple */
+  --accent:  #4dd0e1;        /* sky blue */
+  --bg-grad-1: #f4f9ff;      /* light sky */
+  --bg-grad-2: #eafaf1;      /* mint green */
+  --text: #1e293b;
+  --muted: #64748b;
   --card: #ffffff;
   --glass: rgba(255,255,255,0.7);
   --radius: 14px;
@@ -22,7 +22,7 @@
   --transition: 240ms cubic-bezier(.2,.9,.3,1);
 }
 
-/* Dark theme (optional). Toggle with: document.documentElement.setAttribute('data-theme','dark') */
+/* Dark theme (optional) */
 :root[data-theme="dark"]{
   --bg-grad-1: #071023;
   --bg-grad-2: #072a18;
@@ -45,8 +45,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
   line-height:1.45;
 }
-
-/* Page wrapper */
 .wrapper{max-width:var(--max-width); margin:18px auto; padding: 0 18px;}
 
 /* ---------- Header ---------- */
@@ -88,7 +86,7 @@ body{
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* Header controls (theme toggle + mobile) */
+/* Header controls */
 .header-controls{display:flex;gap:8px; align-items:center;}
 .theme-toggle, .nav-toggle{
   background:rgba(255,255,255,0.12); border:0; padding:8px 10px; border-radius:9px;
@@ -97,7 +95,7 @@ body{
 }
 .theme-toggle:hover, .nav-toggle:hover{ transform:translateY(-2px) }
 
-/* ---------- Container/Card ---------- */
+/* ---------- Container ---------- */
 .container{
   background: var(--card);
   margin-top: 18px;
@@ -105,13 +103,11 @@ body{
   border-radius: var(--radius);
   box-shadow: var(--shadow-2);
 }
-
-/* Grid helpers */
 .grid{display:grid; gap:16px}
 .grid.cols-2{grid-template-columns: 1fr 1fr}
 @media (max-width:900px){ .grid.cols-2{grid-template-columns:1fr} }
 
-/* ---------- Form elements ---------- */
+/* ---------- Forms ---------- */
 label{display:block; margin-bottom:6px; color:var(--text); font-weight:600}
 input[type="number"], input[type="text"], input[type="email"], select, textarea{
   width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e6ecf0; font-size:15px;
@@ -134,24 +130,24 @@ input:focus, textarea:focus, select:focus{
   background:transparent; color:var(--text); border:1px solid #e6ecf0;
 }
 
-/* ---------- Result table / summary ---------- */
+/* ---------- Tables ---------- */
 .summary-table{width:100%; border-collapse:collapse; margin-top:12px; font-size:15px}
 .summary-table th, .summary-table td{
   padding:10px 12px; border:1px solid #eef3f6; text-align:left;
 }
 .summary-table th{
   background: linear-gradient(90deg, var(--accent), var(--primary));
-  color: #fff;   /* text white rahega header me */
+  color: #fff;
   font-weight:700;
 }
 
-/* ---------- Cards / offer boxes ---------- */
+/* ---------- Cards ---------- */
 .card{
   padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));
   box-shadow:var(--shadow-2); border:1px solid rgba(10,10,10,0.02);
 }
 
-/* ---------- Small helpers ---------- */
+/* ---------- Text helpers ---------- */
 .kicker{font-weight:700; color:var(--muted); font-size:13px}
 .h-xl{font-size:1.5rem; font-weight:700}
 .lead{color:var(--muted); margin-top:6px}
@@ -159,7 +155,7 @@ input:focus, textarea:focus, select:focus{
 /* ---------- Footer ---------- */
 .site-footer{margin-top:26px; padding:18px; text-align:center; color:var(--muted); font-size:14px}
 
-/* ---------- Responsive nav: mobile ---------- */
+/* ---------- Responsive nav ---------- */
 .nav-toggle{display:none}
 @media (max-width:880px){
   .main-nav{ position:fixed; right:14px; top:86px; background:var(--card); flex-direction:column; padding:12px; border-radius:10px;
@@ -177,25 +173,18 @@ a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outl
   .header-inner{padding:8px}
   .logo{font-size:1.02rem}
 }
-/* ----- Tab forms hidden by default ----- */
+
+/* ----- Loan Tabs ----- */
 .loan-form,
 .comparison-form,
 .interest-form,
 .murabaha-form,
-.musharakah-form {
-  display: none;
-}
-
-/* Only active tab visible */
+.musharakah-form { display: none; }
 .loan-form.active,
 .comparison-form.active,
 .interest-form.active,
 .murabaha-form.active,
-.musharakah-form.active {
-  display: block;
-}
-
-/* Tab buttons style */
+.musharakah-form.active { display: block; }
 .tab-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -217,5 +206,44 @@ a:focus, button:focus, input:focus{outline: 3px solid rgba(0,178,106,0.14); outl
   background: linear-gradient(90deg, var(--primary), var(--accent));
   color: #fff;
   box-shadow: var(--shadow-1);
-   }
+}
+
+/* ---------- Homepage Hero Section ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  margin-bottom: 30px;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 14px; }
+.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 24px; line-height: 1.6; }
+.hero img { max-width: 280px; margin-top: 20px; border-radius: var(--radius); box-shadow: var(--shadow-2); }
+
+/* ---------- Features Section ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.feature-card {
+  background: var(--card);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+  text-align: center;
+}
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
+.feature-card img { height: 64px; margin-bottom: 12px; }
+.feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
+.feature-card p { font-size: 0.95rem; color: var(--muted); }
+
                                                                 

@@ -1,3 +1,7 @@
+window.onerror = function(message, source, lineno, colno, error) {
+  alert("Error: " + message + " at line " + lineno);
+};
+
 // script.js — fixed version for all calculators
 (function () {
   'use strict';

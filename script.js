@@ -1,11 +1,11 @@
-// Script.js — All calculators (safe, robust) — paste entire file and save as Script.js
+// script.js — All calculators
 (function(){
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function(){
-    console.log('Script.js loaded — loan calculators ready');
+    console.log('script.js loaded — loan calculators ready');
 
-    // Expose functions to global so existing inline onclick="..." still works
+    // Expose functions to global scope (for inline onclick in HTML)
     window.showTab = showTab;
     window.calcLoan = calcLoan;
     window.resetForm = resetForm;
@@ -21,11 +21,11 @@
     }
   });
 
+  // Switch tabs
   function showTab(tab){
-    // hide all forms
     const forms = document.querySelectorAll('.loan-form,.comparison-form,.interest-form,.murabaha-form,.musharakah-form');
     forms.forEach(f => f.classList.remove('active'));
-    // deactivate all tab buttons
+
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
     const map = {
@@ -41,32 +41,39 @@
       const target = document.getElementById(map[tab]);
       if(target) target.classList.add('active');
     }
-    // set clicked button active — inline onclick may not pass event, so use document.activeElement fallback
+
     const clicked = document.activeElement;
     if(clicked && clicked.classList && clicked.classList.contains('tab-btn')){
       clicked.classList.add('active');
     }
   }
 
-  // helper: format numbers
-  function fmt(n,dec=2){ return Number(n).toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
+  // Format numbers
+  function fmt(n,dec=2){
+    return Number(n).toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  }
 
-  // Reset form and clear results inside it
+  // Reset form
   function resetForm(id){
     const form = document.getElementById(id);
     if(!form) return;
     form.reset();
-    form.querySelectorAll('div').forEach(d => d.innerHTML = '');
+    // only clear result div
+    const result = form.querySelector("div[id$='Result']");
+    if(result) result.innerHTML = '';
   }
 
-  // Generic loan EMI calculator for types: car, home, personal
+  // Loan EMI calculator (car, home, personal)
   function calcLoan(type){
     const amountEl = document.getElementById(type + 'Amount');
     const rateEl = document.getElementById(type + 'Rate');
     const yearsEl = document.getElementById(type + 'Years');
     const out = document.getElementById(type + 'Result');
 
-    if(!amountEl || !rateEl || !yearsEl || !out){ console.error('Missing elements for', type); return; }
+    if(!amountEl || !rateEl || !yearsEl || !out){
+      console.error('Missing elements for', type);
+      return;
+    }
 
     const amount = parseFloat(amountEl.value);
     const annualRate = parseFloat(rateEl.value);
@@ -99,7 +106,7 @@
     </table>`;
   }
 
-  // Compare two banks
+  // Loan comparison
   function compareLoans(){
     const rateA = parseFloat(document.getElementById('rateA').value);
     const rateB = parseFloat(document.getElementById('rateB').value);
@@ -115,10 +122,12 @@
     const emiA = calcEMI(amount, rateA, months);
     const emiB = calcEMI(amount, rateB, months);
 
-    document.getElementById('compareResult').innerHTML = `<p>Bank A EMI: <b>PKR ${fmt(emiA,2)}</b><br>Bank B EMI: <b>PKR ${fmt(emiB,2)}</b></p>`;
+    document.getElementById('compareResult').innerHTML = `
+      <p>Bank A EMI: <b>PKR ${fmt(emiA,2)}</b><br>
+      Bank B EMI: <b>PKR ${fmt(emiB,2)}</b></p>`;
   }
 
-  // Flat vs Reducing
+  // Flat vs reducing balance
   function calcInterest(){
     const amount = parseFloat(document.getElementById('intAmount').value);
     const rate = parseFloat(document.getElementById('intRate').value);
@@ -133,7 +142,9 @@
     const months = Math.round(years * 12);
     const reducing = calcEMI(amount, rate, months);
 
-    document.getElementById('intResult').innerHTML = `<p>Flat EMI: PKR ${fmt(flat,2)}<br>Reducing EMI: PKR ${fmt(reducing,2)}</p>`;
+    document.getElementById('intResult').innerHTML = `
+      <p>Flat EMI: PKR ${fmt(flat,2)}<br>
+      Reducing EMI: PKR ${fmt(reducing,2)}</p>`;
   }
 
   // Murabaha
@@ -150,7 +161,9 @@
     const total = price + price * (profit/100) * years;
     const emi = total / (years * 12);
 
-    document.getElementById('murabahaResult').innerHTML = `<p>Total Payable: PKR ${fmt(total,0)}<br>Monthly Installment: <b>PKR ${fmt(emi,2)}</b></p>`;
+    document.getElementById('murabahaResult').innerHTML = `
+      <p>Total Payable: PKR ${fmt(total,0)}<br>
+      Monthly Installment: <b>PKR ${fmt(emi,2)}</b></p>`;
   }
 
   // Musharakah
@@ -169,10 +182,12 @@
     const monthlyRent = (bankShare * (rent/100)) / 12;
     const total = monthlyRent * years * 12 + bankShare;
 
-    document.getElementById('musharakahResult').innerHTML = `<p>Total Payable: PKR ${fmt(total,0)}<br>Monthly Rent + Equity: <b>PKR ${fmt(total/(years*12),2)}</b></p>`;
+    document.getElementById('musharakahResult').innerHTML = `
+      <p>Total Payable: PKR ${fmt(total,0)}<br>
+      Monthly Rent + Equity: <b>PKR ${fmt(total/(years*12),2)}</b></p>`;
   }
 
-  // helper to compute EMI given annual rate percent and months
+  // EMI helper
   function calcEMI(amount, annualRatePercent, months){
     const r = (annualRatePercent/100) / 12;
     if(r === 0) return amount / months;
@@ -180,4 +195,5 @@
   }
 
 })(); // end IIFE
+
 

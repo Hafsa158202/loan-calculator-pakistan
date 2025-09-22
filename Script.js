@@ -1,141 +1,183 @@
-// === Loan Calculator Script ===
+// Script.js — All calculators (safe, robust) — paste entire file and save as Script.js
+(function(){
+  'use strict';
 
-// Tabs switch karna
-function showTab(tab) {
-  document.querySelectorAll(
-    ".loan-form,.comparison-form,.interest-form,.murabaha-form,.musharakah-form"
-  ).forEach((f) => f.classList.remove("active"));
+  document.addEventListener('DOMContentLoaded', function(){
+    console.log('Script.js loaded — loan calculators ready');
 
-  document.querySelectorAll(".tab-btn").forEach((b) =>
-    b.classList.remove("active")
-  );
+    // Expose functions to global so existing inline onclick="..." still works
+    window.showTab = showTab;
+    window.calcLoan = calcLoan;
+    window.resetForm = resetForm;
+    window.compareLoans = compareLoans;
+    window.calcInterest = calcInterest;
+    window.calcMurabaha = calcMurabaha;
+    window.calcMusharakah = calcMusharakah;
 
-  if (tab === "car") document.getElementById("carForm").classList.add("active");
-  if (tab === "home")
-    document.getElementById("homeForm").classList.add("active");
-  if (tab === "personal")
-    document.getElementById("personalForm").classList.add("active");
-  if (tab === "compare")
-    document.getElementById("compareForm").classList.add("active");
-  if (tab === "interest")
-    document.getElementById("interestForm").classList.add("active");
-  if (tab === "murabaha")
-    document.getElementById("murabahaForm").classList.add("active");
-  if (tab === "musharakah")
-    document.getElementById("musharakahForm").classList.add("active");
+    // Make first tab active if none is active
+    if(!document.querySelector('.tab-btn.active')){
+      const firstBtn = document.querySelector('.tab-btn');
+      if(firstBtn) firstBtn.classList.add('active');
+    }
+  });
 
-  event.target.classList.add("active");
-}
+  function showTab(tab){
+    // hide all forms
+    const forms = document.querySelectorAll('.loan-form,.comparison-form,.interest-form,.murabaha-form,.musharakah-form');
+    forms.forEach(f => f.classList.remove('active'));
+    // deactivate all tab buttons
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-// Reset Form
-function resetForm(id) {
-  document.getElementById(id).reset();
-  document.querySelector("#" + id + " div").innerHTML = "";
-}
+    const map = {
+      car: 'carForm',
+      home: 'homeForm',
+      personal: 'personalForm',
+      compare: 'compareForm',
+      interest: 'interestForm',
+      murabaha: 'murabahaForm',
+      musharakah: 'musharakahForm'
+    };
+    if(map[tab]){
+      const target = document.getElementById(map[tab]);
+      if(target) target.classList.add('active');
+    }
+    // set clicked button active — inline onclick may not pass event, so use document.activeElement fallback
+    const clicked = document.activeElement;
+    if(clicked && clicked.classList && clicked.classList.contains('tab-btn')){
+      clicked.classList.add('active');
+    }
+  }
 
-// Normal Loan EMI (Car, Home, Personal)
-function calcLoan(type) {
-  let amount = parseFloat(document.getElementById(type + "Amount").value);
-  let rate = parseFloat(document.getElementById(type + "Rate").value) / 100 / 12;
-  let years = parseFloat(document.getElementById(type + "Years").value) * 12;
+  // helper: format numbers
+  function fmt(n,dec=2){ return Number(n).toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
 
-  if (isNaN(amount) || isNaN(rate) || isNaN(years)) return;
+  // Reset form and clear results inside it
+  function resetForm(id){
+    const form = document.getElementById(id);
+    if(!form) return;
+    form.reset();
+    form.querySelectorAll('div').forEach(d => d.innerHTML = '');
+  }
 
-  let emi =
-    (amount * rate * Math.pow(1 + rate, years)) /
-    (Math.pow(1 + rate, years) - 1);
+  // Generic loan EMI calculator for types: car, home, personal
+  function calcLoan(type){
+    const amountEl = document.getElementById(type + 'Amount');
+    const rateEl = document.getElementById(type + 'Rate');
+    const yearsEl = document.getElementById(type + 'Years');
+    const out = document.getElementById(type + 'Result');
 
-  let totalPayment = emi * years;
-  let totalInterest = totalPayment - amount;
+    if(!amountEl || !rateEl || !yearsEl || !out){ console.error('Missing elements for', type); return; }
 
-  document.getElementById(type + "Result").innerHTML = `
-    <table class="summary-table">
-      <tr><th>Loan Amount</th><td>PKR ${amount.toLocaleString()}</td></tr>
-      <tr><th>Interest Rate</th><td>${(rate * 12 * 100).toFixed(2)}%</td></tr>
-      <tr><th>Duration</th><td>${years / 12} years (${years} months)</td></tr>
-      <tr><th>Monthly EMI</th><td><b>PKR ${emi.toFixed(0).toLocaleString()}</b></td></tr>
-      <tr><th>Total Payment</th><td>PKR ${totalPayment
-        .toFixed(0)
-        .toLocaleString()}</td></tr>
-      <tr><th>Total Interest</th><td>PKR ${totalInterest
-        .toFixed(0)
-        .toLocaleString()}</td></tr>
-    </table>
-  `;
-}
+    const amount = parseFloat(amountEl.value);
+    const annualRate = parseFloat(rateEl.value);
+    const years = parseFloat(yearsEl.value);
 
-// Loan Comparison
-function compareLoans() {
-  let rateA = parseFloat(document.getElementById("rateA").value) / 100 / 12;
-  let rateB = parseFloat(document.getElementById("rateB").value) / 100 / 12;
-  let amount = parseFloat(document.getElementById("compAmount").value);
-  let months = parseFloat(document.getElementById("compYears").value) * 12;
+    if(isNaN(amount) || isNaN(annualRate) || isNaN(years) || amount <= 0 || years <= 0){
+      alert('Please enter valid positive numbers for amount and tenure.');
+      return;
+    }
 
-  let emiA =
-    (amount * rateA * Math.pow(1 + rateA, months)) /
-    (Math.pow(1 + rateA, months) - 1);
-  let emiB =
-    (amount * rateB * Math.pow(1 + rateB, months)) /
-    (Math.pow(1 + rateB, months) - 1);
+    const months = Math.round(years * 12);
+    const monthlyRate = annualRate / 100 / 12;
+    let emi;
+    if(monthlyRate === 0){
+      emi = amount / months;
+    } else {
+      emi = (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    }
 
-  document.getElementById(
-    "compareResult"
-  ).innerHTML = `<p>Bank A EMI: <b>PKR ${emiA
-    .toFixed(0)
-    .toLocaleString()}</b><br>Bank B EMI: <b>PKR ${emiB
-    .toFixed(0)
-    .toLocaleString()}</b></p>`;
-}
+    const totalPayment = emi * months;
+    const totalInterest = totalPayment - amount;
 
-// Flat vs Reducing
-function calcInterest() {
-  let amount = parseFloat(document.getElementById("intAmount").value);
-  let rate = parseFloat(document.getElementById("intRate").value) / 100;
-  let years = parseFloat(document.getElementById("intYears").value);
+    out.innerHTML = `<table class="summary-table">
+      <tr><th>Loan Amount</th><td>PKR ${fmt(amount,0)}</td></tr>
+      <tr><th>Interest Rate (annual)</th><td>${annualRate}%</td></tr>
+      <tr><th>Duration</th><td>${years} years (${months} months)</td></tr>
+      <tr><th>Monthly EMI</th><td><b>PKR ${fmt(emi,2)}</b></td></tr>
+      <tr><th>Total Payment</th><td>PKR ${fmt(totalPayment,0)}</td></tr>
+      <tr><th>Total Interest</th><td>PKR ${fmt(totalInterest,0)}</td></tr>
+    </table>`;
+  }
 
-  let flat = (amount + amount * rate * years) / (years * 12);
+  // Compare two banks
+  function compareLoans(){
+    const rateA = parseFloat(document.getElementById('rateA').value);
+    const rateB = parseFloat(document.getElementById('rateB').value);
+    const amount = parseFloat(document.getElementById('compAmount').value);
+    const years = parseFloat(document.getElementById('compYears').value);
 
-  let r = rate / 12,
-    n = years * 12;
-  let reducing = (amount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    if(isNaN(rateA)||isNaN(rateB)||isNaN(amount)||isNaN(years)|| amount <=0 || years <=0){
+      alert('Please fill all comparison fields with valid numbers.');
+      return;
+    }
 
-  document.getElementById(
-    "intResult"
-  ).innerHTML = `<p>Flat EMI: PKR ${flat
-    .toFixed(0)
-    .toLocaleString()}<br>Reducing EMI: PKR ${reducing
-    .toFixed(0)
-    .toLocaleString()}</p>`;
-}
+    const months = Math.round(years * 12);
+    const emiA = calcEMI(amount, rateA, months);
+    const emiB = calcEMI(amount, rateB, months);
 
-// Murabaha
-function calcMurabaha() {
-  let price = parseFloat(document.getElementById("murabahaPrice").value);
-  let profit = parseFloat(document.getElementById("murabahaRate").value) / 100;
-  let years = parseFloat(document.getElementById("murabahaYears").value);
+    document.getElementById('compareResult').innerHTML = `<p>Bank A EMI: <b>PKR ${fmt(emiA,2)}</b><br>Bank B EMI: <b>PKR ${fmt(emiB,2)}</b></p>`;
+  }
 
-  let total = price + price * profit * years;
-  let emi = total / (years * 12);
+  // Flat vs Reducing
+  function calcInterest(){
+    const amount = parseFloat(document.getElementById('intAmount').value);
+    const rate = parseFloat(document.getElementById('intRate').value);
+    const years = parseFloat(document.getElementById('intYears').value);
 
-  document.getElementById("murabahaResult").innerHTML = `
-    <p>Total Payable: PKR ${total.toFixed(0).toLocaleString()}<br>
-    Monthly Installment: <b>PKR ${emi.toFixed(0).toLocaleString()}</b></p>`;
-}
+    if(isNaN(amount)||isNaN(rate)||isNaN(years)|| amount <=0 || years <=0){
+      alert('Please fill all fields.');
+      return;
+    }
 
-// Musharakah
-function calcMusharakah() {
-  let price = parseFloat(document.getElementById("musharakahPrice").value);
-  let share = parseFloat(document.getElementById("musharakahShare").value) / 100;
-  let rent = parseFloat(document.getElementById("musharakahRent").value) / 100;
-  let years = parseFloat(document.getElementById("musharakahYears").value);
+    const flat = (amount + amount * (rate/100) * years) / (years * 12);
+    const months = Math.round(years * 12);
+    const reducing = calcEMI(amount, rate, months);
 
-  let bankShare = price * share;
-  let monthlyRent = (bankShare * rent) / 12;
-  let total = monthlyRent * years * 12 + bankShare;
+    document.getElementById('intResult').innerHTML = `<p>Flat EMI: PKR ${fmt(flat,2)}<br>Reducing EMI: PKR ${fmt(reducing,2)}</p>`;
+  }
 
-  document.getElementById("musharakahResult").innerHTML = `
-    <p>Total Payable: PKR ${total.toFixed(0).toLocaleString()}<br>
-    Monthly Rent + Equity: <b>PKR ${(total / (years * 12))
-      .toFixed(0)
-      .toLocaleString()}</b></p>`;
-}
+  // Murabaha
+  function calcMurabaha(){
+    const price = parseFloat(document.getElementById('murabahaPrice').value);
+    const profit = parseFloat(document.getElementById('murabahaRate').value);
+    const years = parseFloat(document.getElementById('murabahaYears').value);
+
+    if(isNaN(price)||isNaN(profit)||isNaN(years)|| price <=0 || years <=0){
+      alert('Please fill all fields.');
+      return;
+    }
+
+    const total = price + price * (profit/100) * years;
+    const emi = total / (years * 12);
+
+    document.getElementById('murabahaResult').innerHTML = `<p>Total Payable: PKR ${fmt(total,0)}<br>Monthly Installment: <b>PKR ${fmt(emi,2)}</b></p>`;
+  }
+
+  // Musharakah
+  function calcMusharakah(){
+    const price = parseFloat(document.getElementById('musharakahPrice').value);
+    const share = parseFloat(document.getElementById('musharakahShare').value);
+    const rent = parseFloat(document.getElementById('musharakahRent').value);
+    const years = parseFloat(document.getElementById('musharakahYears').value);
+
+    if(isNaN(price)||isNaN(share)||isNaN(rent)||isNaN(years)|| price <=0 || years <=0){
+      alert('Please fill all fields.');
+      return;
+    }
+
+    const bankShare = price * (share/100);
+    const monthlyRent = (bankShare * (rent/100)) / 12;
+    const total = monthlyRent * years * 12 + bankShare;
+
+    document.getElementById('musharakahResult').innerHTML = `<p>Total Payable: PKR ${fmt(total,0)}<br>Monthly Rent + Equity: <b>PKR ${fmt(total/(years*12),2)}</b></p>`;
+  }
+
+  // helper to compute EMI given annual rate percent and months
+  function calcEMI(amount, annualRatePercent, months){
+    const r = (annualRatePercent/100) / 12;
+    if(r === 0) return amount / months;
+    return (amount * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+  }
+
+})(); // end IIFE
+

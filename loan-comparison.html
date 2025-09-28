@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBL vs Meezan vs UBL Loan Comparison (Pakistan 2025)</title>
+    <meta name="description" content="Compare HBL, Meezan, and UBL loans in Pakistan. See EMI, markup rates, and repayment flexibility in 2025.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .bank-card {
+            transition: all 0.3s ease;
+        }
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .comparison-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .comparison-table th {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .comparison-table tr:hover {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex flex-col">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center text-2xl font-bold text-indigo-600">
+                <span class="bg-indigo-600 text-white px-2 py-1 rounded-md text-sm mr-2">PK</span>
+                Smart Loan Suite
+            </a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#compare" class="text-gray-700 hover:text-indigo-600 transition">Compare</a></li>
+                    <li><a href="#calculator" class="text-gray-700 hover:text-indigo-600 transition">Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">HBL vs Meezan vs UBL Loan Comparison (2025)</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Three of Pakistan's biggest banks offer car, home, and personal loans. Compare their features, rates, and benefits to make an informed decision.</p>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bank-card bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <i data-feather="zap" class="text-blue-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800">HBL Loans</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Conventional loans with fast processing and wide reach. Flexible tenure options for all types of borrowers.</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Fast approval process</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Up to 7 years tenure</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Nationwide branch network</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bank-card bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                        <i data-feather="star" class="text-green-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800">Meezan Bank</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Shariah-compliant products like Car Ijarah and Musharakah for homes. Ethical financing solutions.</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Islamic financing options</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Up to 20 years tenure</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Shariah-compliant</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bank-card bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                        <i data-feather="smartphone" class="text-purple-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800">UBL Loans</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Competitive interest rates and digital loan applications with instant approval. Modern banking solutions.</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Digital application process</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Up to 5 years tenure</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="text-green-500 mr-2 mt-0.5"></i>
+                        <span>Instant approval</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="compare" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Detailed Comparison</h2>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-md">
+                <table class="comparison-table w-full rounded-xl overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-4 text-left">Feature</th>
+                            <th class="px-6 py-4 text-left">HBL</th>
+                            <th class="px-6 py-4 text-left">Meezan</th>
+                            <th class="px-6 py-4 text-left">UBL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Loan Type</td>
+                            <td class="px-6 py-4">Conventional</td>
+                            <td class="px-6 py-4">Islamic</td>
+                            <td class="px-6 py-4">Conventional</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Max Tenure</td>
+                            <td class="px-6 py-4">7 years</td>
+                            <td class="px-6 py-4">20 years</td>
+                            <td class="px-6 py-4">5 years</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Processing Time</td>
+                            <td class="px-6 py-4">3-5 days</td>
+                            <td class="px-6 py-4">5-7 days</td>
+                            <td class="px-6 py-4">Instant online</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Special Feature</td>
+                            <td class="px-6 py-4">Wide branch network</td>
+                            <td class="px-6 py-4">Shariah-compliant</td>
+                            <td class="px-6 py-4">Digital process</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Minimum Salary</td>
+                            <td class="px-6 py-4">PKR 25,000</td>
+                            <td class="px-6 py-4">PKR 30,000</td>
+                            <td class="px-6 py-4">PKR 20,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="calculator" class="bg-white rounded-xl shadow-md p-8 mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Loan Comparison Calculator</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="mb-6">
+                        <label for="loanAmount" class="block text-gray-700 font-medium mb-2">Loan Amount (PKR)</label>
+                        <input type="range" id="loanAmount" min="100000" max="10000000" step="100000" value="5000000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500">100,000</span>
+                            <span class="text-sm text-gray-500">10,000,000</span>
+                        </div>
+                        <div class="mt-2">
+                            <input type="number" id="loanAmountInput" value="5,000,000" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="loanTenure" class="block text-gray-700 font-medium mb-2">Loan Tenure (Years)</label>
+                        <input type="range" id="loanTenure" min="1" max="20" step="1" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500">1</span>
+                            <span class="text-sm text-gray-500">20</span>
+                        </div>
+                        <div class="mt-2">
+                            <input type="number" id="loanTenureInput" value="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                    <button id="calculateBtn" class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 transition duration-300 font-medium">
+                        Calculate EMI
+                    </button>
+                </div>
+                <div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Estimated Monthly Payments</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                        <i data-feather="zap" class="text-blue-600 w-4 h-4"></i>
+                                    </div>
+                                    <span class="font-medium">HBL</span>
+                                </div>
+                                <span class="font-bold text-gray-800">PKR 95,000</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <i data-feather="star" class="text-green-600 w-4 h-4"></i>
+                                    </div>
+                                    <span class="font-medium">Meezan</span>
+                                </div>
+                                <span class="font-bold text-gray-800">PKR 92,500</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                        <i data-feather="smartphone" class="text-purple-600 w-4 h-4"></i>
+                                    </div>
+                                    <span class="font-medium">UBL</span>
+                                </div>
+                                <span class="font-bold text-gray-800">PKR 97,300</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-indigo-50 rounded-lg p-4">
+                            <div class="flex items-center">
+                                <i data-feather="alert-circle" class="text-indigo-600 mr-2"></i>
+                                <span class="text-sm text-gray-700">These are estimated values. Actual rates may vary based on your profile.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-300">© 2025 Pakistan Smart Loan Suite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        // Simple calculator functionality
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            // In a real implementation, this would calculate actual EMI values
+            // based on the loan amount, tenure, and bank-specific interest rates
+            alert('Loan calculation would be performed here with actual bank rates in a real implementation.');
+        });
+
+        // Sync range inputs with number inputs
+        document.getElementById('loanAmount').addEventListener('input', function() {
+            document.getElementById('loanAmountInput').value = Number(this.value).toLocaleString();
+        });
+
+        document.getElementById('loanTenure').addEventListener('input', function() {
+            document.getElementById('loanTenureInput').value = this.value;
+        });
+
+        document.getElementById('loanAmountInput').addEventListener('input', function() {
+            let value = this.value.replace(/,/g, '');
+            if (!isNaN(value)) {
+                document.getElementById('loanAmount').value = value;
+            }
+        });
+
+        document.getElementById('loanTenureInput').addEventListener('input', function() {
+            if (!isNaN(this.value)) {
+                document.getElementById('loanTenure').value = this.value;
+            }
+        });
+    </script>
+</body>
+</html>

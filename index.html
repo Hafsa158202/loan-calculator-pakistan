@@ -1,8 +1,8 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title> Islamic Loan Compare PK : Calculator, Comparison & Islamic Finance</title>
+  <title>Islamic Loan Compare PK : Calculator, Comparison & Islamic Finance</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="All-in-one Islamic Loan Compare PK : Car, Home, Personal, Comparison, Flat vs Reducing, Murabaha, Diminishing Musharakah.">
@@ -10,29 +10,353 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Basic reset & typography ---------- */
+    :root {
+      --accent: #0b6efd;
+      --dark: #1f2937;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --card: #f9fafb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--dark);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: linear-gradient(90deg,#0c4a6e 0%, #0b6efd 100%);
+      color: #fff;
+      padding: 14px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(11,110,253,0.08);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      background: #fff;
+      color: #0b6efd;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Hide default main-nav links (we keep original Home removed from header nav) */
+    .main-nav { display: none; }
+
+    /* ---------- Menu button (hamburger) ---------- */
+    .menu-button {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* ---------- Slide-out menu (right side) ---------- */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s ease, visibility .25s;
+      z-index: 995;
+    }
+    .menu-overlay.open { opacity: 1; visibility: visible; }
+
+    .side-menu {
+      position: fixed;
+      right: -360px; /* offscreen */
+      top: 0;
+      height: 100%;
+      width: 360px;
+      max-width: 90%;
+      background: #fff;
+      box-shadow: -12px 0 30px rgba(16,24,40,0.12);
+      transition: right .28s cubic-bezier(.2,.9,.2,1);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+    }
+    .side-menu.open { right: 0; }
+
+    .side-menu .menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .side-menu h3 { font-size: 18px; color: var(--dark); margin: 0; }
+    .menu-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .side-menu .menu-links {
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-top: 8px;
+    }
+    .side-menu .menu-links a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--dark);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .side-menu .menu-links a .meta {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .side-menu .menu-links a:hover {
+      background: #f3f6ff;
+      color: var(--accent);
+    }
+
+    /* Home link styling inside menu */
+    .menu-links .home-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      padding: 12px;
+      background: #f1f8ff;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* ---------- Hero & features (kept simple) ---------- */
+    .hero {
+      max-width: 1100px;
+      margin: 26px auto;
+      padding: 24px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(180deg, #ffffff 0, #fbfdff 100%);
+      border-radius: 10px;
+    }
+    .hero h1 { font-size: 26px; margin-bottom: 8px; }
+    .hero p { color: var(--muted); margin-bottom: 12px; }
+    .hero img { width: 110px; height: auto; opacity: .95; }
+
+    /* feature cards wrapper */
+    .wrapper { max-width: 1100px; margin: 18px auto; padding: 0 18px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; margin-top: 12px; }
+
+    .feature-card {
+      background: var(--card);
+      border-radius: 10px;
+      text-align: center;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(16,24,40,0.03);
+    }
+    .feature-card h3 { margin: 8px 0 6px; font-size: 16px; }
+    .feature-card p { color: var(--muted); font-size: 14px; }
+
+    /* calculators container kept as-is but ensure spacing */
+    .container { max-width: 1100px; margin: 18px auto; padding: 0 18px 30px; }
+    .tab-buttons { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+    .tab-btn { padding:8px 12px; border-radius:8px; border:1px solid #e5e7eb; background:#fff; cursor:pointer; }
+    .tab-btn.active { background: var(--accent); color:#fff; border-color:transparent; }
+
+    .loan-form { display:none; background:#fff; padding:14px; border-radius:10px; box-shadow:0 6px 20px rgba(2,6,23,0.03); margin-bottom:12px; }
+    .loan-form.active { display:block; }
+    .loan-form label { display:block; margin-top:8px; font-size:14px; color:var(--muted); }
+    .loan-form input { width:100%; padding:8px 10px; margin-top:6px; border-radius:8px; border:1px solid #e6e6e6; }
+    .btn { display:inline-block; padding:8px 12px; border-radius:10px; background:var(--accent); color:#fff; border:none; cursor:pointer; margin-top:10px; }
+    .btn.secondary { background:#eef2ff; color:var(--accent); }
+
+    /* CTA footer */
+    .cta-footer { max-width:1100px; margin: 18px auto; padding: 18px; text-align:center; }
+    .footer-icons { margin-top:10px; display:flex; gap:8px; justify-content:center; font-size:20px; }
+
+    /* ---------- Footer: Quick Links + SEO Pages (responsive) ---------- */
+    .footer-links {
+      display:flex;
+      gap: 20px;
+      background: #fbfcfd;
+      padding: 22px;
+      border-top: 1px solid #eee;
+      margin: 22px auto 0;
+      max-width: 1100px;
+      border-radius: 10px;
+    }
+    .footer-column {
+      flex: 1 1 300px;
+    }
+    .footer-column h3 { font-size:16px; margin-bottom:10px; color:var(--dark); }
+    .footer-column ul { list-style:none; padding:0; display:grid; gap:8px; }
+    .footer-column ul li a { color:var(--dark); font-size:14px; }
+    .footer-bottom {
+      max-width:1100px;
+      margin: 10px auto 30px;
+      padding: 8px 18px;
+      display:flex;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* small screens: stack footer columns */
+    @media (max-width: 720px) {
+      .hero { flex-direction: column; align-items:flex-start; gap:12px; }
+      .side-menu { width: 86%; }
+      .footer-links { flex-direction: column; padding: 18px; }
+      .menu-button { padding: 8px; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- HEADER -->
   <header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo"><span class="badge">PK</span> Islamic Loan Compare PK </a>
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About Us</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="privacy.html" class="nav-link">Privacy Policy</a>
-      <a href="disclaimer.html" class="nav-link">Disclaimer</a>
-    </nav>
-  </div>
-</header>
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="badge">PK</span> Islamic Loan Compare PK</a>
+      <!-- menu button (right) -->
+      <button class="menu-button" id="openMenuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
 
-  
+  <!-- Slide-out side menu (right) + overlay -->
+  <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
+
+  <aside id="sideMenu" class="side-menu" aria-hidden="true">
+    <div class="menu-header">
+      <h3>Menu</h3>
+      <button class="menu-close" id="closeMenuBtn" aria-label="Close menu">✕</button>
+    </div>
+
+    <nav class="menu-links" role="navigation" aria-label="Main menu">
+      <!-- Home link -->
+      <a href="index.html" class="home-link">
+        <strong>Home</strong>
+        <span class="meta">Back to calculator</span>
+      </a>
+
+      <!-- SEO links (titles shown as subtitle meta) -->
+      <a href="HBL_personal_loan.html">
+        HBL Personal Loan
+        <span class="meta">HBL Personal Loan</span>
+      </a>
+
+      <a href="Islamic_financing_solution.html">
+        Islamic Financing Solution
+        <span class="meta">Islamic Financing Solution - Pakistan 2025</span>
+      </a>
+
+      <a href="bank_alfalah_loan.html">
+        Bank Alfalah Personal Loan
+        <span class="meta">Bank Alfalah Personal Loan</span>
+      </a>
+
+      <a href="car-loan-page.html">
+        Car Loans (Top Banks)
+        <span class="meta">Top 5 Banks for Car Loans in Pakistan (2025)</span>
+      </a>
+
+      <a href="flat-vs-reducing.html">
+        Flat vs Reducing
+        <span class="meta">Flat vs Reducing Loan in Pakistan (2025 Guide)</span>
+      </a>
+
+      <a href="ijarah.html">
+        Ijarah (Islamic Leasing)
+        <span class="meta">Ijara (Islamic Leasing)</span>
+      </a>
+
+      <a href="istisna.html">
+        Istisna
+        <span class="meta">Istisna (Manufacturing Contract)</span>
+      </a>
+
+      <a href="loan_comparision.html">
+        Loan Comparison
+        <span class="meta">HBL vs Meezan vs UBL Loan Comparison (Pakistan 2025)</span>
+      </a>
+
+      <a href="meezan_bank_personal_finance.html">
+        Meezan Bank Personal Finance
+        <span class="meta">Meezan Bank Personal Finance</span>
+      </a>
+
+      <a href="mudarabah.html">
+        Mudarabah
+        <span class="meta">Mudarabah</span>
+      </a>
+
+      <a href="personal_loan.html">
+        Personal Loans (Best)
+        <span class="meta">Best Personal Loans in Pakistan (2025)</span>
+      </a>
+
+      <a href="qard_hasan.html">
+        Qard Hasan
+        <span class="meta">Qard Hasan (Interest-Free Loan)</span>
+      </a>
+
+      <a href="salam.html">
+        Salam
+        <span class="meta">Salam (Advance Payment)</span>
+      </a>
+
+      <a href="ubl_personal_loan.html">
+        UBL Personal Loan
+        <span class="meta">UBL Personal Loan</span>
+      </a>
+
+      <a href="wadiah.html">
+        Wadiah
+        <span class="meta">Wadiah (Safekeeping Account)</span>
+      </a>
+    </nav>
+  </aside>
 
   <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>Smarter Loan Decisions for Pakistan</h1>
-    <p>Calculate EMI, compare banks, explore Islamic finance — all in one place.</p>
-    <a href="#calculators" class="btn">Start Calculating</a>
+  <section class="hero wrapper">
+    <div>
+      <h1>Smarter Loan Decisions for Pakistan</h1>
+      <p>Calculate EMI, compare banks, explore Islamic finance — all in one place.</p>
+      <a href="#calculators" class="btn">Start Calculating</a>
+    </div>
     <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/512/external-loan-banking-flaticons-flat-flat-icons.png" alt="Loan illustration">
   </section>
 
@@ -177,7 +501,7 @@
   </div>
 
   <!-- CTA FOOTER -->
-  <section class="cta-footer">
+  <section class="cta-footer wrapper">
     <h2>Ready to Plan Your Loan?</h2>
     <p>Use Pakistan’s most comprehensive loan calculator suite today.</p>
     <a href="#calculators" class="btn">Calculate Now</a>
@@ -189,15 +513,133 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <span>© 2025 Islamic Loan Compare PK </span>
+  <!-- FOOTER LINKS (Quick Links + SEO Pages) -->
+  <section class="footer-links wrapper" aria-label="Footer links">
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>SEO Pages</h3>
+      <ul>
+        <li><a href="HBL_personal_loan.html">HBL Personal Loan</a></li>
+        <li><a href="Islamic_financing_solution.html">Islamic Financing Solution - Pakistan 2025</a></li>
+        <li><a href="bank_alfalah_loan.html">Bank Alfalah Personal Loan</a></li>
+        <li><a href="car-loan-page.html">Top 5 Banks for Car Loans in Pakistan (2025)</a></li>
+        <li><a href="flat-vs-reducing.html">Flat vs Reducing Loan in Pakistan (2025 Guide)</a></li>
+        <li><a href="ijarah.html">Ijara (Islamic Leasing)</a></li>
+        <li><a href="istisna.html">Istisna (Manufacturing Contract)</a></li>
+        <li><a href="loan_comparision.html">HBL vs Meezan vs UBL Loan Comparison (Pakistan 2025)</a></li>
+        <li><a href="meezan_bank_personal_finance.html">Meezan Bank Personal Finance</a></li>
+        <li><a href="mudarabah.html">Mudarabah</a></li>
+        <li><a href="personal_loan.html">Best Personal Loans in Pakistan (2025)</a></li>
+        <li><a href="qard_hasan.html">Qard Hasan (Interest-Free Loan)</a></li>
+        <li><a href="salam.html">Salam (Advance Payment)</a></li>
+        <li><a href="ubl_personal_loan.html">UBL Personal Loan</a></li>
+        <li><a href="wadiah.html">Wadiah (Safekeeping Account)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footer-bottom">
+    <a href="about.html">About Us</a> ·
+    <a href="contact.html">Contact</a> ·
+    <a href="privacy.html">Privacy</a> ·
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+
+  <!-- COPYRIGHT FOOTER -->
+  <footer class="site-footer" style="text-align:center; padding-bottom:28px; color:#6b7280;">
+    <span>© 2025 Islamic Loan Compare PK</span>
   </footer>
 
-  <!-- JAVASCRIPT -->
- <script src="script.js"></script> 
+  <!-- JAVASCRIPT (menu toggle + tab behavior placeholders) -->
+  <script>
+    // Slide-out menu controls
+    const openBtn = document.getElementById('openMenuBtn');
+    const closeBtn = document.getElementById('closeMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('open');
+      overlay.classList.add('open');
+      sideMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      sideMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    openBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    // close menu with Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Basic tab switching logic (keeps your original behavior)
+    function showTab(tabId) {
+      const forms = document.querySelectorAll('.loan-form, .comparison-form, .interest-form, .murabaha-form, .musharakah-form');
+      forms.forEach(f => f.classList.remove('active'));
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      // activate appropriate form and button
+      if (tabId === 'car') {
+        document.getElementById('carForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'home') {
+        document.getElementById('homeForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'personal') {
+        document.getElementById('personalForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'compare') {
+        document.getElementById('compareForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'interest') {
+        document.getElementById('interestForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'murabaha') {
+        document.getElementById('murabahaForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      } else if (tabId === 'musharakah') {
+        document.getElementById('musharakahForm').classList.add('active');
+        event?.target?.classList?.add('active');
+      }
+    }
+
+    // small helpers used in original code (reset & calculator placeholders)
+    function resetForm(id){ const f = document.getElementById(id); if(f) f.reset(); }
+    // Placeholder calculators (if you have functions in script.js, they will be used instead)
+    function calcLoan(type){ 
+      try {
+        // if user has script.js with functions, they'll run instead
+        if (typeof window.calcLoan === 'function' && window.calcLoan !== calcLoan) {
+          window.calcLoan(type); return;
+        }
+      } catch(e){}
+      alert('Calculate called for: ' + type + '\n(If you have script.js with calculators, it will override this placeholder)');
+    }
+    function compareLoans(){ alert('Compare Loans - placeholder'); }
+    function calcInterest(){ alert('Interest calc - placeholder'); }
+    function calcMurabaha(){ alert('Murabaha calc - placeholder'); }
+    function calcMusharakah(){ alert('Musharakah calc - placeholder'); }
+  </script>
+
 </body>
 </html>
+
 
 
 

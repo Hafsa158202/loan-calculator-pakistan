@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Get complete details about HBL Personal Loan — eligibility, loan amount, profit rate, documents, application process, and FAQs.">
   <title>HBL Personal Loan | Islamic Loan Compare PK</title>
+
+  <!-- 🌿 Theme CSS File -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CDN (for extra utility styling if needed) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-    }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
     }
     .card {
       background: white;
@@ -32,13 +32,54 @@
 </head>
 <body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">HBL Personal Loan</h1>
-    <p class="mt-2 text-lg">Your complete guide to features, loan amount, charges & process</p>
-  </header>
+  <!-- 🌐 HEADER START -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="badge">PK</span> Islamic Loan Compare
+      </a>
 
-  <!-- Main -->
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="HBL_personal_loan.html" class="nav-link active">HBL Loan</a>
+        <a href="Islamic_financing_solution.html" class="nav-link">Islamic Financing</a>
+        <a href="personal_loan.html" class="nav-link">Personal Loans</a>
+        <a href="loan_comparision.html" class="nav-link">Comparison</a>
+      </nav>
+
+      <!-- Hamburger Icon -->
+      <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="side-menu">
+      <button class="close-btn" onclick="toggleMenu()">✕</button>
+      <a href="index.html">🏠 Home</a>
+      <a href="HBL_personal_loan.html">HBL Personal Loan</a>
+      <a href="Islamic_financing_solution.html">Islamic Financing Solution</a>
+      <a href="bank_alfalah_loan.html">Bank Alfalah Loan</a>
+      <a href="car-loan-page.html">Car Loans</a>
+      <a href="flat-vs-reducing.html">Flat vs Reducing</a>
+      <a href="ijarah.html">Ijarah</a>
+      <a href="istisna.html">Istisna</a>
+      <a href="loan_comparision.html">Loan Comparison</a>
+      <a href="meezan_bank_personal_finance.html">Meezan Bank</a>
+      <a href="mudarabah.html">Mudarabah</a>
+      <a href="personal_loan.html">Personal Loan</a>
+      <a href="qard_hasan.html">Qard Hasan</a>
+      <a href="salam.html">Salam</a>
+      <a href="ubl_personal_loan.html">UBL Loan</a>
+      <a href="wadiah.html">Wadiah</a>
+      <hr>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </header>
+  <!-- 🌐 HEADER END -->
+
+  <!-- 📝 MAIN CONTENT -->
   <main class="flex-grow max-w-4xl mx-auto p-6 mt-6 card space-y-10">
 
     <!-- Overview -->
@@ -122,23 +163,37 @@
 
     <!-- Learn More Button -->
     <div class="text-center">
-      <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg transition">
-        Learn More →
-      </a>
+      <a href="#" class="btn">Learn More →</a>
     </div>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
-    <div class="space-x-4">
-      <a href="#" class="hover:underline">About Us</a>
-      <a href="#" class="hover:underline">Contact</a>
-      <a href="#" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Disclaimer</a>
+  <!-- 🌐 FOOTER START -->
+  <footer class="site-footer">
+    <div class="footer-links grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><br>
+        <a href="about.html">About Us</a><br>
+        <a href="contact.html">Contact</a><br>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a><br>
+        <a href="disclaimer.html">Disclaimer</a><br>
+      </div>
     </div>
-    <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
+    <p class="footer-copy mt-4 text-sm">© 2025 Islamic Loan Compare PK — All Rights Reserved</p>
   </footer>
+  <!-- 🌐 FOOTER END -->
+
+  <!-- ✅ Toggle Script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('sideMenu').classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
+

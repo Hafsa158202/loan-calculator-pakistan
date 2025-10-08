@@ -1,114 +1,199 @@
-/* === style.css | Unified Modern Theme === */
-:root{
-  --primary: #7c4dff;   /* lavender purple */
-  --accent:  #4dd0e1;   /* sky blue */
-  --bg-grad-1: #f4f9ff;
-  --bg-grad-2: #eafaf1;
-  --text: #1e293b;
-  --muted: #64748b;
-  --card: #ffffff;
-  --radius: 14px;
-  --shadow: 0 6px 20px rgba(0,0,0,0.08);
-  --transition: 250ms cubic-bezier(.2,.9,.3,1);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Get complete details about HBL Personal Loan — eligibility, loan amount, profit rate, documents, application process, and FAQs.">
+  <title>HBL Personal Loan | Islamic Loan Compare PK</title>
 
-/* --- Base --- */
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family: "Rubik", sans-serif;
-  background: linear-gradient(135deg,var(--bg-grad-1),var(--bg-grad-2));
-  color: var(--text);
-  line-height: 1.5;
-}
-a{text-decoration:none;color:inherit}
+  <!-- 🌿 Theme CSS File -->
+  <link rel="stylesheet" href="style.css">
 
-/* --- Header --- */
-.site-header{
-  background: linear-gradient(90deg,var(--primary),var(--accent));
-  color:#fff;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow: var(--shadow);
-  position: relative;
-}
-.logo{
-  font-weight:700;
-  font-size:1.25rem;
-  color:#fff;
-}
-.nav-toggle{
-  background:none;
-  border:none;
-  color:#fff;
-  font-size:26px;
-  cursor:pointer;
-  display:none;
-}
-.main-nav{
-  display:flex;
-  gap:14px;
-}
-.main-nav .nav-link{
-  color:#fff;
-  padding:8px 14px;
-  border-radius:8px;
-  transition:var(--transition);
-  font-weight:500;
-}
-.main-nav .nav-link:hover{
-  background:rgba(255,255,255,0.15);
-}
-@media(max-width:768px){
-  .nav-toggle{display:block}
-  .main-nav{
-    position:absolute;
-    top:100%;
-    right:0;
-    background: linear-gradient(135deg,var(--primary),var(--accent));
-    flex-direction:column;
-    width:230px;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.3s ease;
-    border-radius:0 0 0 14px;
-  }
-  .main-nav.open{max-height:400px;padding:12px 0;}
-  .main-nav .nav-link{padding:10px 16px;}
-}
+  <!-- Tailwind CDN (for extra utility styling if needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-/* --- Footer --- */
-.site-footer{
-  background:#fff;
-  color:var(--muted);
-  text-align:center;
-  padding:20px 10px;
-  font-size:14px;
-  border-top:1px solid #eaeaea;
-  margin-top:40px;
-}
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
-  margin-top:10px;
-}
-.footer-links a{
-  color:var(--primary);
-  font-weight:500;
-  transition:color 0.25s;
-}
-.footer-links a:hover{color:var(--accent)}
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
+    }
+    .card {
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
+    }
+    img {
+      border-radius: 0.75rem;
+    }
+    h2 {
+      color: #374785;
+    }
+  </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
 
-/* --- Hero Image (index only) --- */
-.hero-image{
-  width:100%;
-  max-height:400px;
-  object-fit:cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin:20px 0;
-}
+  <!-- 🌐 HEADER START -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="badge">PK</span> Islamic Loan Compare
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="HBL_personal_loan.html" class="nav-link active">HBL Loan</a>
+        <a href="Islamic_financing_solution.html" class="nav-link">Islamic Financing</a>
+        <a href="personal_loan.html" class="nav-link">Personal Loans</a>
+        <a href="loan_comparision.html" class="nav-link">Comparison</a>
+      </nav>
+
+      <!-- Hamburger Icon -->
+      <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="side-menu">
+      <button class="close-btn" onclick="toggleMenu()">✕</button>
+      <a href="index.html">🏠 Home</a>
+      <a href="HBL_personal_loan.html">HBL Personal Loan</a>
+      <a href="Islamic_financing_solution.html">Islamic Financing Solution</a>
+      <a href="bank_alfalah_loan.html">Bank Alfalah Loan</a>
+      <a href="car-loan-page.html">Car Loans</a>
+      <a href="flat-vs-reducing.html">Flat vs Reducing</a>
+      <a href="ijarah.html">Ijarah</a>
+      <a href="istisna.html">Istisna</a>
+      <a href="loan_comparision.html">Loan Comparison</a>
+      <a href="meezan_bank_personal_finance.html">Meezan Bank</a>
+      <a href="mudarabah.html">Mudarabah</a>
+      <a href="personal_loan.html">Personal Loan</a>
+      <a href="qard_hasan.html">Qard Hasan</a>
+      <a href="salam.html">Salam</a>
+      <a href="ubl_personal_loan.html">UBL Loan</a>
+      <a href="wadiah.html">Wadiah</a>
+      <hr>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </header>
+  <!-- 🌐 HEADER END -->
+
+  <!-- 📝 MAIN CONTENT -->
+  <main class="flex-grow max-w-4xl mx-auto p-6 mt-6 card space-y-10">
+
+    <!-- Overview -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">Overview</h2>
+      <p>
+        HBL Personal Loan is designed to provide financial ease for personal or business needs — whether it's home renovation, education, wedding, or emergency expenses. 
+        With quick processing and flexible repayment plans, it's one of the most popular personal loans in Pakistan.
+      </p>
+    </section>
+
+    <!-- Images -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="loan1.jpeg" alt="HBL Loan Image 1" class="w-full h-56 object-cover">
+      <img src="loan2.png" alt="HBL Loan Image 2" class="w-full h-56 object-cover">
+    </section>
+
+    <!-- Loan Amount & Tenure -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">💰 Loan Amount & Tenure</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Minimum Loan:</strong> PKR 25,000</li>
+        <li><strong>Maximum Loan:</strong> Up to PKR 3,000,000 (depending on income & profile)</li>
+        <li><strong>Repayment Tenure:</strong> 12 to 60 months</li>
+        <li>Early settlement or partial prepayment allowed with nominal charges</li>
+      </ul>
+    </section>
+
+    <!-- Profit Rates & Charges -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">📈 Profit Rates & Charges</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Profit Rate:</strong> Competitive market-based profit rate (varies by customer profile)</li>
+        <li><strong>Processing Fee:</strong> Around PKR 2,000 - 5,000 (non-refundable)</li>
+        <li><strong>Late Payment:</strong> As per Islamic banking regulations (no interest)</li>
+        <li><strong>Early Settlement:</strong> Allowed with minimum administrative fee</li>
+      </ul>
+    </section>
+
+    <!-- Application Process -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">📝 Application Process</h2>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Check eligibility criteria</li>
+        <li>Gather required documents (CNIC, income proof, bank statements)</li>
+        <li>Visit nearest HBL branch or apply online</li>
+        <li>Submit application form and wait for approval</li>
+        <li>Receive loan amount directly in your bank account</li>
+      </ol>
+    </section>
+
+    <!-- Why Choose -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">💼 Why Choose HBL?</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>One of Pakistan’s largest and most trusted banks</li>
+        <li>Quick approval & hassle-free process</li>
+        <li>Shariah-compliant options available</li>
+        <li>Flexible repayment according to your budget</li>
+      </ul>
+    </section>
+
+    <!-- FAQs -->
+    <section>
+      <h2 class="text-2xl font-bold mb-3">❓ Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div>
+          <p class="font-semibold">Q: Can I apply online?</p>
+          <p>A: Yes, HBL allows you to apply online or by visiting a branch.</p>
+        </div>
+        <div>
+          <p class="font-semibold">Q: Is there any collateral required?</p>
+          <p>A: No, HBL personal loan is unsecured, so no collateral is needed.</p>
+        </div>
+        <div>
+          <p class="font-semibold">Q: How long does approval take?</p>
+          <p>A: Usually within 5–7 working days if all documents are in order.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn More Button -->
+    <div class="text-center">
+      <a href="#" class="btn">Learn More →</a>
+    </div>
+
+  </main>
+
+  <!-- 🌐 FOOTER START -->
+  <footer class="site-footer">
+    <div class="footer-links grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><br>
+        <a href="about.html">About Us</a><br>
+        <a href="contact.html">Contact</a><br>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a><br>
+        <a href="disclaimer.html">Disclaimer</a><br>
+      </div>
+    </div>
+    <p class="footer-copy mt-4 text-sm">© 2025 Islamic Loan Compare PK — All Rights Reserved</p>
+  </footer>
+  <!-- 🌐 FOOTER END -->
+
+  <!-- ✅ Toggle Script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('sideMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
 

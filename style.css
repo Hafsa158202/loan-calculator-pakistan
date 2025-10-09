@@ -194,5 +194,17 @@ section {
 ul, ol {
   color: #374151;
 }
+/* ==== Hero Section Text Fix ==== */
+.hero-gradient {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white; /* ensures text is white */
+}
+
+.hero-gradient h1,
+.hero-gradient p {
+  color: white; /* make sure heading & paragraph both visible */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* better readability */
+}
+
 
 

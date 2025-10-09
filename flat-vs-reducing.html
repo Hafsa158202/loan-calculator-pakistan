@@ -1,116 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flat vs Reducing Loan in Pakistan (2025 Guide)</title>
   <meta name="description" content="Understand the difference between flat and reducing balance loans in Pakistan. Learn which method is cheaper for EMI calculations in 2025.">
-  
-  <!-- Tailwind CSS -->
-  <link rel="stylesheet" href="style.css">
+
+  <!-- 🧩 Tailwind + AOS + Feather Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS for animation -->
+  <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <style>
-    .loan-diagram { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 1rem; }
-    .arrow-down { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid #4f46e5; margin: 1rem auto; }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
-<body class="bg-gray-50">
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm py-4 px-6">
-    <div class="max-w-6xl mx-auto flex items-center">
-      <a href="index.html" class="flex items-center text-xl font-bold text-indigo-600">
-        <span class="bg-indigo-600 text-white px-2 py-1 rounded mr-2 text-sm">PK</span>
-        Islamic Loan Compare PK 
+<body class="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 text-gray-800">
+
+  <!-- 🌈 HEADER -->
+  <header class="site-header">
+    <div class="header-inner container mx-auto">
+      <a href="index.html" class="logo flex items-center">
+        <span class="badge">PK</span>
+        Islamic Loan Compare PK
       </a>
+      <nav class="main-nav hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="calculators.html" class="nav-link active">Calculators</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="side-menu">
+      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="calculators.html" class="active">Calculators</a>
+      <a href="contact.html">Contact</a>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-4xl mx-auto py-8 px-4">
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Flat vs Reducing Loan in Pakistan</h1>
-    <p class="mb-6">Many people get confused between flat and reducing interest methods. Here’s the difference:</p>
+  <!-- 💙 HERO SECTION -->
+  <section class="hero-gradient text-white py-20 text-center">
+    <div class="container mx-auto px-4" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Flat vs Reducing Loan in Pakistan (2025)</h1>
+      <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+        Learn the difference between flat and reducing balance loan methods — and which is more affordable for you.
+      </p>
+      <a href="index.html#interestForm" class="btn">Compare Your EMI</a>
+    </div>
+  </section>
 
-    <div class="grid md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
-      
-      <!-- Flat Interest -->
-      <div class="loan-diagram p-6 shadow-md">
+  <!-- 🧮 MAIN CONTENT -->
+  <main class="container mx-auto px-4 py-12">
+
+    <!-- Comparison -->
+    <section class="grid md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
+
+      <!-- Flat -->
+      <div class="card">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-xl font-semibold text-gray-700">Flat Interest</h2>
+          <h2 class="text-2xl font-semibold text-blue-600">Flat Interest</h2>
           <i data-feather="dollar-sign" class="text-red-500"></i>
         </div>
         <ul class="space-y-2 text-gray-600">
-          <li>Fixed interest on full amount</li>
-          <li>EMI remains constant</li>
-          <li>Higher total cost</li>
+          <li>Interest on full loan amount throughout tenure.</li>
+          <li>EMI remains constant.</li>
+          <li>Total payable amount is higher.</li>
         </ul>
-        <div class="mt-6 bg-white p-4 rounded-lg shadow-inner">
-          <div class="flex justify-between mb-2"><span class="text-sm text-gray-500">Principal</span><span class="text-sm font-medium">1,000,000 PKR</span></div>
-          <div class="flex justify-between"><span class="text-sm text-gray-500">Total Interest</span><span class="text-sm font-medium text-red-500">500,000 PKR</span></div>
+        <div class="mt-6 bg-indigo-50 p-4 rounded-lg shadow-inner">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm text-gray-500">Principal</span>
+            <span class="text-sm font-medium">1,000,000 PKR</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-sm text-gray-500">Total Interest</span>
+            <span class="text-sm font-medium text-red-500">500,000 PKR</span>
+          </div>
         </div>
       </div>
 
-      <!-- Reducing Balance -->
-      <div class="loan-diagram p-6 shadow-md">
+      <!-- Reducing -->
+      <div class="card">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-xl font-semibold text-gray-700">Reducing Balance</h2>
+          <h2 class="text-2xl font-semibold text-emerald-600">Reducing Balance</h2>
           <i data-feather="trending-down" class="text-green-500"></i>
         </div>
         <ul class="space-y-2 text-gray-600">
-          <li>Interest on outstanding only</li>
-          <li>EMI reduces over time</li>
-          <li>Lower total cost</li>
+          <li>Interest charged only on outstanding balance.</li>
+          <li>EMI reduces gradually.</li>
+          <li>Lower total cost.</li>
         </ul>
-        <div class="mt-6 bg-white p-4 rounded-lg shadow-inner">
-          <div class="flex justify-between mb-2"><span class="text-sm text-gray-500">Principal</span><span class="text-sm font-medium">1,000,000 PKR</span></div>
-          <div class="flex justify-between"><span class="text-sm text-gray-500">Total Interest</span><span class="text-sm font-medium text-green-500">250,000 PKR</span></div>
+        <div class="mt-6 bg-emerald-50 p-4 rounded-lg shadow-inner">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm text-gray-500">Principal</span>
+            <span class="text-sm font-medium">1,000,000 PKR</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-sm text-gray-500">Total Interest</span>
+            <span class="text-sm font-medium text-green-600">250,000 PKR</span>
+          </div>
         </div>
       </div>
 
-    </div>
+    </section>
 
-    <!-- Flowchart -->
-    <div class="bg-white rounded-xl shadow-md p-6 mb-8" data-aos="fade-up">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Loan Comparison Flow</h2>
+    <!-- Flow -->
+    <section class="card text-center" data-aos="fade-up">
+      <h2 class="text-2xl font-bold text-blue-700 mb-4">Loan Comparison Flow</h2>
       <div class="flex flex-col items-center">
-        <div class="bg-indigo-100 p-4 rounded-lg w-full max-w-md text-center mb-2">
-          <p class="font-medium text-indigo-700">Loan Amount: 1,000,000 PKR</p>
-        </div>
+        <div class="bg-blue-100 p-3 rounded-lg mb-2">Loan Amount: 1,000,000 PKR</div>
         <div class="arrow-down"></div>
-        <div class="bg-white p-4 rounded-lg shadow-inner w-full max-w-md text-center mb-2">
-          <p class="text-gray-700">Compare Flat vs Reducing EMI</p>
-        </div>
+        <div class="bg-white p-3 rounded-lg shadow-inner mb-2">Compare Flat vs Reducing EMI</div>
         <div class="arrow-down"></div>
         <div class="grid grid-cols-2 gap-4 w-full max-w-md">
           <div class="bg-red-100 p-3 rounded-lg text-center">Flat: Higher Cost</div>
           <div class="bg-green-100 p-3 rounded-lg text-center">Reducing: Lower Cost</div>
         </div>
       </div>
-    </div>
-
-    <p class="text-center">Check real EMI difference using our <a href="index.html#interestForm" class="text-indigo-600 font-medium">Flat vs Reducing Calculator</a>.</p>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white py-6 text-center shadow-inner">
-    <p>© 2025 Islamic Loan Compare PK  </p>
-    <div class="mt-2 flex justify-center space-x-4">
-      <a href="about.html" class="text-gray-600 hover:text-indigo-600">About Us</a>
-      <a href="contact.html" class="text-gray-600 hover:text-indigo-600">Contact</a>
-      <a href="privacy.html" class="text-gray-600 hover:text-indigo-600">Privacy Policy</a>
-      <a href="disclaimer.html" class="text-gray-600 hover:text-indigo-600">Disclaimer</a>
+  <!-- 🌈 FOOTER -->
+  <footer class="site-footer">
+    <div class="space-x-4 mb-2">
+      <a href="about.html" class="hover:underline">About Us</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+      <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
     </div>
+    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
   </footer>
 
+  <!-- ⚙️ Scripts -->
   <script>
     feather.replace();
-    AOS.init({ duration: 800 });
+    AOS.init({duration:800,once:true});
   </script>
 </body>
 </html>
+

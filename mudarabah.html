@@ -2,88 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mudarabah | Islamic Banking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Mudarabah is an Islamic banking partnership where one party provides capital and the other manages the business. Complete guide.">
+  <title>Mudarabah (Islamic Partnership) | Islamic Loan Compare PK</title>
+
+  <!-- Tailwind + External CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-    }
-    .card {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      background: white;
-    }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">Mudarabah (Islamic Partnership)</h1>
-    <p class="mt-2 text-lg">A Shariah-Compliant Profit Sharing Model</p>
-  </header>
+<body class="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 text-gray-800">
 
-  <!-- Main Content -->
-  <main class="flex-grow max-w-3xl mx-auto p-6 mt-6 card rounded-2xl">
-    <h2 class="text-2xl font-bold text-blue-800 mb-4">What is Mudarabah?</h2>
-    <p class="mb-4">
-      Mudarabah is a partnership where one party provides the capital (Rab-ul-Maal) and the other 
-      provides management & expertise (Mudarib). Profits are shared based on a pre-agreed ratio, 
-      while losses are borne only by the capital provider.
-    </p>
-    <ul class="list-disc pl-6 space-y-2 mb-6">
-      <li>Used in deposit schemes and Islamic investments</li>
-      <li>Profit ratios are agreed in advance</li>
-      <li>Shariah-compliant alternative to interest-based financing</li>
-    </ul>
-
-    <!-- Simple Calculator -->
-    <div class="bg-blue-50 p-4 rounded-xl mb-6">
-      <h3 class="font-semibold mb-2 text-blue-700">💰 Profit Calculator</h3>
-      <label class="block mb-2">Investment Amount (PKR):</label>
-      <input id="amount" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 100000">
-      <label class="block mb-2">Profit Rate (%):</label>
-      <input id="rate" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 10">
-      <button onclick="calculateProfit()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Calculate</button>
-      <p id="result" class="mt-3 font-semibold text-blue-800"></p>
+  <!-- 🌙 HEADER -->
+  <header class="site-header">
+    <div class="header-inner container mx-auto">
+      <a href="index.html" class="logo flex items-center">
+        <span class="badge">PK</span>
+        Islamic Loan Compare PK
+      </a>
+      <nav class="main-nav hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#">About</a>
+        <a href="#">Calculators</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">
+        ☰
+      </button>
     </div>
 
-    <a href="index.html" class="text-green-700 hover:underline">← Back to Home Page</a>
+    <!-- 📱 Mobile Menu -->
+    <div class="side-menu">
+      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Calculators</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+
+  <!-- 💫 HERO SECTION -->
+  <section class="hero-gradient text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Mudarabah (Islamic Partnership)</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        A Shariah-Compliant Profit Sharing Model in Islamic Banking
+      </p>
+    </div>
+  </section>
+
+  <!-- 🕌 MAIN CONTENT -->
+  <main class="container mx-auto px-4 py-12">
+
+    <!-- Introduction -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-blue-700 mb-4">🤝 What is Mudarabah?</h2>
+      <p>
+        Mudarabah is a partnership where one party provides the capital (<strong>Rab-ul-Maal</strong>) 
+        and the other provides management and expertise (<strong>Mudarib</strong>). 
+        Profits are shared based on a pre-agreed ratio, while losses are borne only by the capital provider.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mt-3">
+        <li>Used in deposit schemes and Islamic investments</li>
+        <li>Profit ratios are agreed upon in advance</li>
+        <li>Shariah-compliant alternative to interest-based financing</li>
+      </ul>
+    </section>
+
+    <!-- Calculator -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-12">
+      <h3 class="text-2xl font-semibold text-green-700 mb-3">💰 Mudarabah Profit Calculator</h3>
+      <p class="text-gray-600 mb-4">Estimate potential profit and total return based on your investment.</p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1 font-medium">Investment Amount (PKR):</label>
+          <input id="amount" type="number" class="border p-2 rounded w-full" placeholder="e.g. 100,000">
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Profit Rate (%):</label>
+          <input id="rate" type="number" class="border p-2 rounded w-full" placeholder="e.g. 10">
+        </div>
+      </div>
+
+      <button onclick="calculateProfit()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4">
+        Calculate Profit
+      </button>
+
+      <p id="result" class="mt-3 font-semibold text-blue-800"></p>
+    </section>
+
+    <!-- Benefits -->
+    <section>
+      <h2 class="text-3xl font-bold text-blue-700 mb-4">🌟 Benefits of Mudarabah</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Promotes partnership and ethical profit-sharing</li>
+        <li>Encourages entrepreneurship and risk-sharing</li>
+        <li>Fully compliant with Islamic Shariah principles</li>
+        <li>No fixed or guaranteed return — risk is shared fairly</li>
+      </ul>
+    </section>
+
+    <!-- Back Button -->
+    <div class="text-center mt-10">
+      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md">
+        ← Back to Home Page
+      </a>
+    </div>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
-    <div class="space-x-4">
+  <!-- 🌈 FOOTER -->
+  <footer class="site-footer">
+    <div class="space-x-4 mb-2">
       <a href="#" class="hover:underline">About Us</a>
       <a href="#" class="hover:underline">Contact</a>
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Disclaimer</a>
     </div>
-    <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
+    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
   </footer>
 
+  <!-- ⚙️ Script -->
   <script>
     function calculateProfit() {
       const amount = parseFloat(document.getElementById('amount').value);
       const rate = parseFloat(document.getElementById('rate').value);
+
       if (isNaN(amount) || isNaN(rate)) {
         document.getElementById('result').innerText = "⚠️ Please enter valid numbers.";
         return;
       }
+
       const profit = amount * (rate / 100);
       const total = amount + profit;
-      document.getElementById('result').innerText = 
+
+      document.getElementById('result').innerText =
         `Estimated Profit: PKR ${profit.toLocaleString()} | Total: PKR ${total.toLocaleString()}`;
     }
   </script>
-
 </body>
 </html>
+

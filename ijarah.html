@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ijara is an Islamic leasing model where the bank buys an asset and leases it to the customer. Learn complete details here.">
   <title>Ijara (Islamic Leasing) | Islamic Loan Compare PK</title>
 
-  <!-- ✅ Tailwind CSS -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- ✅ Apni common CSS file -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -17,46 +17,34 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
     }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-    .card {
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
     h2, h3 {
       color: #374785;
     }
   </style>
 </head>
-
 <body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">Ijara (Islamic Leasing)</h1>
-    <p class="mt-2 text-lg">A Shariah-Compliant Alternative to Conventional Leasing</p>
+  <!-- Header / Hero Section -->
+  <header class="text-white text-center p-8 shadow-lg" style="background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);">
+    <h1 class="text-4xl font-bold mb-2">Ijara (Islamic Leasing)</h1>
+    <p class="text-lg">A Shariah-Compliant Alternative to Conventional Leasing</p>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow max-w-5xl mx-auto p-6 mt-6 card space-y-10">
+  <main class="flex-grow max-w-5xl mx-auto p-6 mt-8 bg-white shadow-xl rounded-2xl space-y-10">
 
     <!-- Introduction -->
     <section>
       <h2 class="text-2xl font-bold mb-3">🏦 What is Ijara?</h2>
       <p>
-        Ijara is an Islamic financing concept where the bank purchases an asset (like a car, home, or equipment) 
-        and leases it to the customer for a fixed period. Ownership remains with the bank, while the customer 
-        enjoys the right to use the asset in exchange for periodic rental payments.
+        Ijara is an Islamic financing concept where the bank purchases an asset (such as a home, car, or machinery) 
+        and leases it to the customer for a fixed period. Ownership stays with the bank, while the customer uses the asset 
+        in return for periodic rental payments. This model avoids interest (riba) and follows Shariah principles.
       </p>
       <ul class="list-disc pl-6 space-y-2 mt-3">
         <li>Used for car, home, or equipment financing</li>
-        <li>Ownership stays with the bank, usage with the customer</li>
-        <li>Shariah-compliant alternative to interest-based leasing</li>
+        <li>Ownership remains with the bank, usage with the customer</li>
+        <li>Shariah-compliant and interest-free leasing model</li>
       </ul>
     </section>
 
@@ -70,20 +58,20 @@
     <section>
       <h2 class="text-2xl font-bold mb-3">📄 How Does Ijara Work?</h2>
       <ol class="list-decimal pl-6 space-y-2">
-        <li>The customer selects the asset they wish to lease (e.g., a car or home).</li>
+        <li>The customer selects the asset they wish to lease (e.g., car, house, or machinery).</li>
         <li>The bank purchases the asset and retains ownership.</li>
-        <li>The customer signs a lease agreement for a fixed period and rental amount.</li>
+        <li>The customer signs a lease agreement with fixed tenure and rent.</li>
         <li>Customer makes regular rental payments (not interest-based).</li>
-        <li>At the end of the lease, the bank may transfer ownership to the customer (Ijara-wa-Iqtina model).</li>
+        <li>After the lease term, the bank may transfer ownership (Ijara-wa-Iqtina model).</li>
       </ol>
     </section>
 
     <!-- Rental Calculator -->
     <section class="bg-blue-50 p-6 rounded-xl shadow-md">
       <h3 class="text-xl font-semibold text-blue-700 mb-3">🏡 Lease Rental Calculator</h3>
-      <p class="text-gray-700 mb-4">Estimate your monthly and total rental amount under the Ijara model.</p>
+      <p class="text-gray-700 mb-4">Estimate your monthly and total rental payments under the Ijara model.</p>
 
-      <div class="grid md:grid-cols-2 gap-4">
+      <div class="grid md:grid-cols-3 gap-4">
         <div>
           <label class="block mb-1 font-medium">Asset Value (PKR):</label>
           <input id="asset" type="number" class="border p-2 rounded w-full" placeholder="e.g. 1,000,000">
@@ -111,14 +99,14 @@
     <section>
       <h2 class="text-2xl font-bold mb-3">🌙 Benefits of Ijara</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>Fully Shariah-compliant leasing model</li>
-        <li>Transparent rental structure without interest</li>
-        <li>Flexibility to own the asset at lease-end</li>
-        <li>Suitable for both individuals and businesses</li>
+        <li>Completely Shariah-compliant and transparent</li>
+        <li>Clear rental structure without interest</li>
+        <li>Option to own the asset after lease term</li>
+        <li>Suitable for individuals and businesses</li>
       </ul>
     </section>
 
-    <!-- Back to Home -->
+    <!-- Back Button -->
     <div class="text-center">
       <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg mt-4 shadow-md">
         ← Back to Home Page
@@ -128,7 +116,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
+  <footer class="text-white text-center p-4 mt-8" style="background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);">
     <div class="space-x-4">
       <a href="#" class="hover:underline">About Us</a>
       <a href="#" class="hover:underline">Contact</a>
@@ -138,7 +126,7 @@
     <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
   </footer>
 
-  <!-- JS -->
+  <!-- Calculator Script -->
   <script>
     function calculateIjara() {
       const asset = parseFloat(document.getElementById('asset').value);
@@ -153,11 +141,12 @@
       const monthlyRent = asset * (rentRate / 100);
       const totalRent = monthlyRent * months;
 
-      document.getElementById('ijaraResult').innerText = 
+      document.getElementById('ijaraResult').innerText =
         `Estimated Monthly Rent: PKR ${monthlyRent.toLocaleString()} | Total Rent: PKR ${totalRent.toLocaleString()}`;
     }
   </script>
 
 </body>
 </html>
+
 

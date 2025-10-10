@@ -3,152 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="UBL Personal Loan — Digital application, flexible tenure, competitive markup, and customer-focused financial solutions.">
+  <meta name="description" content="UBL Personal Loan — digital application, flexible tenure, competitive markup, and customer-centric features.">
   <title>UBL Personal Loan | Islamic Loan Compare PK</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-    }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-    .card {
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
-    h2 {
-      color: #374785;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">UBL Personal Loan</h1>
-    <p class="mt-2 text-lg">Digital • Flexible • Customer-Focused Financing Solution</p>
+  <!-- Tailwind + AOS + Feather -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-green-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- 🌐 HEADER -->
+  <header class="site-header">
+    <div class="header-inner container mx-auto">
+      <a href="index.html" class="logo flex items-center">
+        <span class="badge">PK</span>
+        Islamic Loan Compare PK
+      </a>
+      <nav class="main-nav hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="personal-loan.html" class="nav-link active">Personal Loans</a>
+        <a href="car-loan.html" class="nav-link">Car Loans</a>
+        <a href="compare.html" class="nav-link">Compare Banks</a>
+      </nav>
+      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">☰</button>
+    </div>
+
+    <!-- 📱 Mobile Menu -->
+    <div class="side-menu">
+      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
+      <a href="index.html">Home</a>
+      <a href="personal-loan.html" class="active">Personal Loans</a>
+      <a href="car-loan.html">Car Loans</a>
+      <a href="compare.html">Compare Banks</a>
+    </div>
   </header>
 
-  <!-- Main -->
-  <main class="flex-grow max-w-5xl mx-auto p-6 mt-6 card space-y-10">
+  <!-- 🏦 HERO SECTION -->
+  <section class="hero-gradient text-white py-16 text-center">
+    <div class="container mx-auto px-4" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">UBL Personal Loan (2025)</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+        Digital • Flexible • Customer-Focused Financing
+      </p>
+    </div>
+  </section>
+
+  <!-- 💰 MAIN CONTENT -->
+  <main class="flex-grow max-w-4xl mx-auto px-6 py-12 bg-white rounded-2xl shadow-xl mt-8 space-y-12" data-aos="fade-up">
 
     <!-- Introduction -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🏦 Introduction</h2>
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">🏦 Overview</h2>
       <p>
-        UBL Personal Loan offers a seamless, fully digital borrowing experience for individuals seeking fast and flexible financing. 
-        With convenient online applications, customizable repayment options, and transparent markup rates, 
-        UBL brings modern banking convenience right to your fingertips.
+        UBL Personal Loan provides a modern and fully digital experience for individuals seeking financial assistance for personal or professional needs.
+        Enjoy flexible repayment tenures, competitive markup rates, and transparent processing with a trusted banking partner.
       </p>
     </section>
 
     <!-- Images -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <img src="loan3.png" alt="UBL Digital Loan Application" class="w-full h-56 object-cover rounded-lg shadow-md">
-      <img src="loan4.png" alt="Happy UBL Loan Customer" class="w-full h-56 object-cover rounded-lg shadow-md">
+      <img src="loan3.png" alt="UBL Digital Loan Application" class="w-full h-56 object-cover rounded-xl shadow-md">
+      <img src="loan4.png" alt="Happy UBL Loan Customer" class="w-full h-56 object-cover rounded-xl shadow-md">
     </section>
 
     <!-- Digital Application -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">💻 Digital Application Process</h2>
-      <p>
-        UBL allows you to apply for a personal loan from the comfort of your home. 
-        The step-by-step online process ensures you stay informed through real-time updates and SMS notifications.
-      </p>
-      <ol class="list-decimal pl-6 space-y-2 mt-2">
-        <li>Visit UBL’s official loan application portal.</li>
-        <li>Enter your CNIC and income details for eligibility check.</li>
-        <li>Upload your documents securely.</li>
-        <li>Track approval via SMS or email.</li>
-        <li>Receive funds directly in your UBL account.</li>
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">💻 Digital Application Process</h2>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Visit UBL’s official loan portal.</li>
+        <li>Enter CNIC and income details for instant eligibility check.</li>
+        <li>Upload documents digitally for verification.</li>
+        <li>Track your application status in real-time.</li>
+        <li>Receive funds directly in your UBL account after approval.</li>
       </ol>
     </section>
 
     <!-- Flexible Tenure -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🕓 Flexible Tenure & Competitive Markup</h2>
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">🕓 Flexible Tenure & Markup</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Loan Amount:</strong> PKR 30,000 – PKR 3,000,000 (based on eligibility)</li>
-        <li><strong>Tenure:</strong> 12 to 60 months, easy monthly installments</li>
-        <li><strong>Markup:</strong> Transparent and market-competitive rates</li>
-        <li>Early settlement and partial payments allowed</li>
+        <li><strong>Loan Amount:</strong> PKR 30,000 – PKR 3,000,000</li>
+        <li><strong>Tenure:</strong> 12 – 60 months</li>
+        <li><strong>Markup:</strong> Competitive and transparent</li>
+        <li>Early or partial settlements allowed with nominal charges</li>
       </ul>
     </section>
 
-    <!-- Innovation -->
+    <!-- Security -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🔐 Innovation & Security</h2>
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">🔐 Innovation & Security</h2>
       <p>
-        UBL uses advanced digital and cybersecurity measures to ensure your data and transactions remain protected. 
-        Its digital services are trusted nationwide for reliability and innovation.
-      </p>
-    </section>
-
-    <!-- Other Services -->
-    <section>
-      <h2 class="text-2xl font-bold mb-3">🌐 Extensive Banking Services</h2>
-      <p>
-        In addition to personal loans, UBL offers Islamic banking, investment products, digital wallets, and business accounts — 
-        giving you a one-stop financial platform.
+        UBL applies advanced security measures across its digital systems.
+        All personal data and transactions are encrypted under UBL’s cybersecurity framework ensuring a safe and seamless experience.
       </p>
     </section>
 
     <!-- Customer-Centric -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🤝 Customer-Centric Approach</h2>
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">🤝 Customer-Centric Services</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>24/7 customer support for all loan queries</li>
-        <li>Personalized offers based on banking history</li>
-        <li>Auto-debit options for easy installment payments</li>
-        <li>No hidden charges or complicated terms</li>
+        <li>Dedicated customer support</li>
+        <li>Personalized loan offers</li>
+        <li>Auto-debit installment feature</li>
+        <li>Transparent policies with no hidden charges</li>
       </ul>
     </section>
 
     <!-- FAQs -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">❓ Frequently Asked Questions</h2>
-      <div class="space-y-4">
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">❓ FAQs</h2>
+      <div class="space-y-4 text-gray-700">
         <div>
-          <p class="font-semibold">Q: Can I apply completely online?</p>
-          <p>A: Yes, the process is 100% digital — from application to approval.</p>
+          <p class="font-semibold">Q: Can I apply online?</p>
+          <p>A: Yes, the application process is fully digital and branchless.</p>
         </div>
         <div>
-          <p class="font-semibold">Q: How soon can I receive funds?</p>
-          <p>A: Usually within 3–5 working days after document verification.</p>
+          <p class="font-semibold">Q: How fast will I receive funds?</p>
+          <p>A: Typically within 3–5 business days post-verification.</p>
         </div>
         <div>
-          <p class="font-semibold">Q: Does UBL offer Islamic loan options?</p>
-          <p>A: Yes, UBL offers both conventional and Shariah-compliant loans.</p>
+          <p class="font-semibold">Q: Are Islamic loan options available?</p>
+          <p>A: Yes, UBL provides both conventional and Islamic personal loans.</p>
         </div>
         <div>
           <p class="font-semibold">Q: Is collateral required?</p>
-          <p>A: No, personal loans are unsecured and hassle-free.</p>
+          <p>A: No, UBL Personal Loans are unsecured.</p>
         </div>
       </div>
     </section>
 
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="index.html#personalForm" class="btn">Try Loan Calculator →</a>
+    </div>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
-    <div class="space-x-4">
-      <a href="#" class="hover:underline">About Us</a>
-      <a href="#" class="hover:underline">Contact</a>
+  <!-- 🌍 FOOTER -->
+  <footer class="site-footer mt-12">
+    <div class="space-x-4 mb-2">
+      <a href="about.html" class="hover:underline">About Us</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Disclaimer</a>
     </div>
-    <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
+    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
   </footer>
 
+  <script>
+    AOS.init({ duration: 800, once: true });
+    feather.replace();
+  </script>
 </body>
 </html>
+
 

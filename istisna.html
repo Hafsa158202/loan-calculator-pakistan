@@ -4,70 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Istisna is an Islamic contract in which an item is manufactured or constructed and delivered in the future. Commonly used for housing and industrial project financing.">
-  <title>Istisna (Manufacturing Contract) | Islamic Banking</title>
+  <title>Istisna (Manufacturing Contract) | Islamic Loan Compare PK</title>
+
+  <!-- Tailwind + External CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
     }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-    .card {
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
   </style>
 </head>
 <body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">Istisna (Manufacturing Contract)</h1>
-    <p class="mt-2 text-lg">An Islamic Mode of Construction & Project Financing</p>
+  <!-- 🌙 HEADER -->
+  <header class="site-header bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 text-white p-6 shadow-lg">
+    <div class="container mx-auto flex flex-wrap justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold flex items-center space-x-2">
+        <span class="bg-white text-green-700 font-bold px-2 py-1 rounded">PK</span>
+        <span>Islamic Loan Compare PK</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-white font-medium">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="#">About</a>
+        <a href="#">Calculators</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-grow max-w-3xl mx-auto p-6 mt-6 card">
-    <h2 class="text-2xl font-bold text-blue-800 mb-4">What is Istisna?</h2>
-    <p class="mb-4">
-      Istisna is a contract where a buyer places an order for the manufacturing or 
-      construction of an asset. The price and delivery date are agreed in advance. 
-      It is widely used in housing finance and industrial project development.
-    </p>
+  <!-- 💠 HERO SECTION -->
+  <section class="text-center py-12 bg-gradient-to-r from-green-200 via-blue-100 to-purple-200 shadow-md">
+    <h1 class="text-4xl font-bold text-blue-900 mb-2">Istisna (Manufacturing Contract)</h1>
+    <p class="text-lg text-gray-700">An Islamic Mode of Construction & Project Financing</p>
+  </section>
 
-    <ul class="list-disc pl-6 space-y-2 mb-6">
-      <li>Used in housing and industrial projects</li>
-      <li>Price and delivery time are fixed in advance</li>
-      <li>Based on future delivery agreements</li>
-    </ul>
+  <!-- 🕌 MAIN CONTENT -->
+  <main class="flex-grow max-w-4xl mx-auto p-6 mt-8 bg-white shadow-xl rounded-2xl space-y-10">
+    
+    <!-- What is Istisna -->
+    <section>
+      <h2 class="text-2xl font-bold text-blue-800 mb-3">🏗 What is Istisna?</h2>
+      <p>
+        Istisna is an Islamic contract where a buyer places an order for the manufacturing 
+        or construction of an asset. The price and delivery date are agreed upon in advance. 
+        It is commonly used in housing and industrial project financing.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mt-3">
+        <li>Used in housing and industrial project development</li>
+        <li>Price and delivery time are pre-agreed</li>
+        <li>Based on future delivery agreements (not interest-based)</li>
+      </ul>
+    </section>
 
-    <!-- Simple Project Cost Estimator -->
-    <div class="bg-blue-50 p-4 rounded-xl mb-6">
-      <h3 class="font-semibold mb-2 text-blue-700">🏗 Project Cost Estimator</h3>
-      <label class="block mb-2">Estimated Base Cost (PKR):</label>
-      <input id="baseCost" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 5000000">
+    <!-- Calculator -->
+    <section class="bg-blue-50 p-6 rounded-xl shadow-md">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">💰 Project Cost Estimator</h3>
+      <p class="text-gray-700 mb-4">Estimate total project cost under the Istisna model.</p>
 
-      <label class="block mb-2">Profit Margin (%):</label>
-      <input id="profitMargin" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 15">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1 font-medium">Estimated Base Cost (PKR):</label>
+          <input id="baseCost" type="number" class="border p-2 rounded w-full" placeholder="e.g. 5,000,000">
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Profit Margin (%):</label>
+          <input id="profitMargin" type="number" class="border p-2 rounded w-full" placeholder="e.g. 15">
+        </div>
+      </div>
 
-      <button onclick="calculateIstisna()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+      <button onclick="calculateIstisna()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4">
         Calculate Total
       </button>
 
       <p id="istisnaResult" class="mt-3 font-semibold text-blue-800"></p>
-    </div>
+    </section>
 
-    <a href="index.html" class="text-green-700 hover:underline">← Back to Home Page</a>
+    <!-- Benefits -->
+    <section>
+      <h2 class="text-2xl font-bold text-blue-800 mb-3">🌟 Benefits of Istisna</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Supports manufacturing and construction industries</li>
+        <li>Shariah-compliant financing without interest</li>
+        <li>Flexibility in payment and delivery</li>
+        <li>Encourages real economic activity and growth</li>
+      </ul>
+    </section>
+
+    <!-- Back Button -->
+    <div class="text-center">
+      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg mt-4 shadow-md">
+        ← Back to Home Page
+      </a>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
+  <!-- 🌈 FOOTER -->
+  <footer class="text-white text-center p-4 mt-8 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">
     <div class="space-x-4">
       <a href="#" class="hover:underline">About Us</a>
       <a href="#" class="hover:underline">Contact</a>
@@ -77,6 +112,7 @@
     <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
   </footer>
 
+  <!-- ⚙️ Script -->
   <script>
     function calculateIstisna() {
       const baseCost = parseFloat(document.getElementById('baseCost').value);
@@ -97,3 +133,4 @@
 
 </body>
 </html>
+

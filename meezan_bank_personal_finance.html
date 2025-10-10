@@ -5,147 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Meezan Bank Personal Finance — Shariah-compliant financing for education, emergencies, SMEs, and personal needs. Explore digital platforms, Islamic banking leadership, and flexible options.">
   <title>Meezan Bank Personal Finance | Islamic Loan Compare PK</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-    }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-    .card {
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
-    h2 {
-      color: #374785;
-    }
-  </style>
-</head>
-<body class="text-gray-800 flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">Meezan Bank Personal Finance</h1>
-    <p class="mt-2 text-lg">Shariah-Compliant • Trusted • Modern Islamic Banking</p>
+  <!-- Tailwind + AOS + Feather -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- 🌙 HEADER -->
+  <header class="site-header">
+    <div class="header-inner container mx-auto">
+      <a href="index.html" class="logo flex items-center">
+        <span class="badge">PK</span>
+        Islamic Loan Compare PK
+      </a>
+      <nav class="main-nav hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="personal-loan.html" class="nav-link active">Personal Loans</a>
+        <a href="car-loan.html" class="nav-link">Car Loans</a>
+        <a href="compare.html" class="nav-link">Compare Banks</a>
+      </nav>
+      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">☰</button>
+    </div>
+
+    <!-- 📱 Mobile Menu -->
+    <div class="side-menu">
+      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
+      <a href="index.html">Home</a>
+      <a href="personal-loan.html" class="active">Personal Loans</a>
+      <a href="car-loan.html">Car Loans</a>
+      <a href="compare.html">Compare Banks</a>
+    </div>
   </header>
 
-  <!-- Main -->
-  <main class="flex-grow max-w-5xl mx-auto p-6 mt-6 card space-y-10">
+  <!-- 🕌 HERO SECTION -->
+  <section class="hero-gradient text-white py-16 text-center">
+    <div class="container mx-auto px-4" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Meezan Bank Personal Finance (2025)</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+        Shariah-Compliant • Trusted • Modern Islamic Banking
+      </p>
+    </div>
+  </section>
+
+  <!-- 🌿 MAIN CONTENT -->
+  <main class="flex-grow max-w-4xl mx-auto px-6 py-12 bg-white rounded-2xl shadow-xl mt-8 space-y-12" data-aos="fade-up">
 
     <!-- Introduction -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🏦 Introduction</h2>
+      <h2 class="text-2xl font-bold mb-3 text-green-700">🏦 Introduction</h2>
       <p>
         Meezan Bank, Pakistan’s first and largest Islamic bank, offers personal finance solutions that align with Shariah principles, ensuring transparency and ethical banking.
-        Whether you’re managing education expenses, emergencies, or personal needs, Meezan Bank provides financial support without compromising Islamic values. 
-        With its strong branch network, robust digital services, and focus on justice and balance, Meezan has become a trusted name in faith-based banking.
+        Whether you’re managing education expenses, emergencies, or personal needs, Meezan Bank provides financial support without compromising Islamic values.
       </p>
     </section>
 
     <!-- Images -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <img src="loan7.jpeg" alt="Meezan Bank Personal Finance Service" class="w-full h-56 object-cover rounded-lg shadow-md">
-      <img src="loan8.jpeg" alt="Happy Meezan Bank Customers" class="w-full h-56 object-cover rounded-lg shadow-md">
+      <img src="loan7.jpeg" alt="Meezan Bank Personal Finance Service" class="w-full h-56 object-cover rounded-xl shadow-md">
+      <img src="loan8.jpeg" alt="Happy Meezan Bank Customers" class="w-full h-56 object-cover rounded-xl shadow-md">
     </section>
 
     <!-- Shariah-Compliant Finance -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🕌 Shariah-Compliant Financing</h2>
+      <h2 class="text-2xl font-bold mb-3 text-green-700">🕌 Shariah-Compliant Financing</h2>
       <p>
-        Meezan Bank follows the principles of Islamic finance, avoiding interest (Riba) and ensuring transactions are transparent, fair, and backed by real assets.
-        Personal finance is offered through Shariah-compliant modes such as Murabaha and Musawamah, making it a suitable choice for those who want modern banking with Islamic values.
+        Meezan Bank follows the principles of Islamic finance, avoiding interest (Riba) and ensuring all transactions are transparent, fair, and backed by real assets.
+        Financing is offered through Shariah-approved modes like Murabaha and Musawamah.
       </p>
       <ul class="list-disc pl-6 space-y-2 mt-2">
-        <li>Financing for education, medical emergencies, or personal needs</li>
-        <li>No interest-based transactions</li>
-        <li>Contracts reviewed and approved by Meezan’s Shariah Board</li>
-        <li>Repayment through flexible monthly installments</li>
+        <li>Education, medical, or emergency financing</li>
+        <li>100% interest-free (Riba-free) transactions</li>
+        <li>Shariah Board approved contracts</li>
+        <li>Flexible monthly repayment options</li>
       </ul>
     </section>
 
     <!-- Digital Banking -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">💻 Robust Digital Platforms</h2>
+      <h2 class="text-2xl font-bold mb-3 text-green-700">💻 Robust Digital Platforms</h2>
       <p>
-        Meezan Bank has invested significantly in digital innovation, offering customers the convenience of applying for financing, tracking repayments, and managing their accounts online.
-        Whether through the Meezan Mobile App or Internet Banking, customers can securely handle their financial needs without visiting a branch.
+        Meezan Bank provides digital convenience through its mobile app and internet banking, allowing customers to apply, manage, and repay financing easily and securely.
       </p>
       <ul class="list-disc pl-6 space-y-2 mt-2">
-        <li>Online application submission and tracking</li>
-        <li>Secure digital document verification</li>
-        <li>24/7 customer support through mobile app and call centers</li>
-        <li>Real-time notifications and updates</li>
+        <li>Online application & tracking system</li>
+        <li>Secure document verification</li>
+        <li>24/7 customer support via app and helpline</li>
+        <li>Instant notifications for payments</li>
       </ul>
     </section>
 
     <!-- SME & E-Commerce Support -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">📈 Support for SMEs & E-Commerce</h2>
+      <h2 class="text-2xl font-bold mb-3 text-green-700">📈 Support for SMEs & E-Commerce</h2>
       <p>
-        Meezan Bank goes beyond personal finance by supporting entrepreneurs and small businesses through specialized Shariah-compliant SME products. 
-        With structured programs for working capital, equipment financing, and digital commerce, the bank empowers businesses to grow ethically and efficiently.
+        Meezan Bank empowers entrepreneurs through specialized SME and digital commerce finance programs.
+        The bank offers ethical and flexible business financing under Islamic principles.
       </p>
       <ul class="list-disc pl-6 space-y-2 mt-2">
-        <li>Flexible repayment plans for small businesses</li>
-        <li>Dedicated SME relationship managers</li>
-        <li>E-commerce payment gateway solutions</li>
-        <li>Training & advisory programs for entrepreneurs</li>
+        <li>Flexible repayment for SMEs</li>
+        <li>Dedicated Islamic business advisors</li>
+        <li>E-commerce gateway integration</li>
+        <li>Entrepreneur training & guidance</li>
       </ul>
     </section>
 
-    <!-- Why Choose Meezan Bank -->
+    <!-- Why Choose Meezan -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">🌟 Why Choose Meezan Bank?</h2>
+      <h2 class="text-2xl font-bold mb-3 text-green-700">🌟 Why Choose Meezan Bank?</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>🏅 Pioneer in Islamic banking with nationwide recognition</li>
-        <li>🌐 Extensive branch network and ATM coverage across Pakistan</li>
-        <li>📜 Guided by a strong Shariah Supervisory Board</li>
-        <li>⚡ Fast processing and transparent procedures</li>
-        <li>🤝 Committed to justice, balance, and customer trust</li>
+        <li>🏅 Pioneer of Islamic banking in Pakistan</li>
+        <li>🌐 950+ branches nationwide</li>
+        <li>📜 Guided by a reputable Shariah Supervisory Board</li>
+        <li>⚡ Fast processing & transparent contracts</li>
+        <li>🤝 Committed to justice and customer trust</li>
       </ul>
     </section>
 
     <!-- FAQs -->
     <section>
-      <h2 class="text-2xl font-bold mb-3">❓ Frequently Asked Questions</h2>
-      <div class="space-y-4">
+      <h2 class="text-2xl font-bold mb-3 text-green-700">❓ Frequently Asked Questions</h2>
+      <div class="space-y-4 text-gray-700">
         <div>
-          <p class="font-semibold">Q: Can I apply for personal finance online?</p>
-          <p>A: Yes, Meezan Bank allows online applications through its digital platforms.</p>
+          <p class="font-semibold">Q: Can I apply online?</p>
+          <p>A: Yes, Meezan Bank allows easy online applications via its official website or mobile app.</p>
         </div>
         <div>
-          <p class="font-semibold">Q: Is Meezan Bank financing interest-free?</p>
-          <p>A: Absolutely. Meezan follows Shariah principles, offering interest-free and transparent financing modes.</p>
+          <p class="font-semibold">Q: Is this loan interest-free?</p>
+          <p>A: Yes, all Meezan finance products are 100% Shariah-compliant and interest-free.</p>
         </div>
         <div>
-          <p class="font-semibold">Q: What can I use this finance for?</p>
-          <p>A: You can use Meezan personal finance for education, medical expenses, emergencies, or other personal needs within Shariah-compliant boundaries.</p>
+          <p class="font-semibold">Q: What can I use it for?</p>
+          <p>A: For education, emergencies, healthcare, or personal needs under Shariah compliance.</p>
         </div>
         <div>
-          <p class="font-semibold">Q: How long is the approval process?</p>
-          <p>A: Typically, approvals take 3–7 working days depending on documentation and verification.</p>
+          <p class="font-semibold">Q: How long does approval take?</p>
+          <p>A: Typically within 3–7 working days depending on verification.</p>
         </div>
       </div>
     </section>
 
+    <!-- CTA Button -->
+    <div class="text-center">
+      <a href="index.html#personalForm" class="btn">Try Loan Calculator →</a>
+    </div>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
-    <div class="space-x-4">
-      <a href="#" class="hover:underline">About Us</a>
-      <a href="#" class="hover:underline">Contact</a>
+  <!-- 🌙 FOOTER -->
+  <footer class="site-footer mt-12">
+    <div class="space-x-4 mb-2">
+      <a href="about.html" class="hover:underline">About Us</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Disclaimer</a>
     </div>
-    <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
+    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
   </footer>
 
+  <script>
+    AOS.init({ duration: 800, once: true });
+    feather.replace();
+  </script>
 </body>
 </html>
+

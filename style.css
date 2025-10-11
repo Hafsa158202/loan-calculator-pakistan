@@ -196,16 +196,12 @@ ul, ol {
 }
 /* ==== Hero Section Text Fix ==== */
 .hero-gradient {
-  background: linear-gradient(135deg, #ede7f6, #e0bbff, #f3e5f5);
+  background: linear-gradient(135deg, #E6E6FA, #EDE7F6, #F3E5F5);
   color: #333; /* dark grey text */
 }
 
 .hero-gradient h1,
 .hero-gradient p {
   color: #333; /* dark grey text */
-  text-shadow: none; /* remove shadow for clean look */
+  text-shadow: none;
 }
-
-
-
-

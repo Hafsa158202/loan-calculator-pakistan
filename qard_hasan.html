@@ -2,97 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Qard Hasan is an Islamic interest-free loan provided for welfare and social purposes. Learn its features and benefits here.">
-  <title>Qard Hasan (Interest-Free Loan) | Islamic Banking</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-    }
-    header {
-      background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd);
-    }
-    footer {
-      background: linear-gradient(90deg, #9575cd, #64b5f6, #81c784);
-    }
-    .card {
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
-  </style>
-</head>
-<body class="text-gray-800 flex flex-col min-h-screen">
+  <title>Qard Hasan (Interest-Free Loan) | Islamic Loan Compare PK</title>
 
-  <!-- Header -->
-  <header class="text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">Qard Hasan (Interest-Free Loan)</h1>
-    <p class="mt-2 text-lg">An Islamic Welfare-Based Loan System</p>
+  <!-- Tailwind + External CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 text-gray-800">
+
+  <!-- 🌙 HEADER -->
+  <header class="site-header">
+    <div class="header-inner container mx-auto">
+      <a href="index.html" class="logo flex items-center">
+        <span class="badge">PK</span>
+        Islamic Loan Compare PK
+      </a>
+      <nav class="main-nav hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#">About</a>
+        <a href="#">Calculators</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">
+        ☰
+      </button>
+    </div>
+
+    <!-- 📱 Mobile Menu -->
+    <div class="side-menu">
+      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Calculators</a>
+      <a href="#">Contact</a>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-grow max-w-3xl mx-auto p-6 mt-6 card">
-    <h2 class="text-2xl font-bold text-blue-800 mb-4">What is Qard Hasan?</h2>
-    <p class="mb-4">
-      Qard Hasan is an Islamic interest-free loan offered to individuals or businesses in need, 
-      without expecting any return or profit. It is usually provided to support social welfare, 
-      education, healthcare, or small business initiatives.
-    </p>
+  <!-- 💫 HERO SECTION -->
+  <section class="hero-gradient text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Qard Hasan (Interest-Free Loan)</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        An Islamic Welfare-Based Loan System for Social and Financial Support
+      </p>
+    </div>
+  </section>
 
-    <ul class="list-disc pl-6 space-y-2 mb-6">
-      <li>Promotes social welfare and community support</li>
-      <li>Completely interest-free financial help</li>
-      <li>Reflects the social responsibility of Islamic banks</li>
-    </ul>
+  <!-- 🕌 MAIN CONTENT -->
+  <main class="container mx-auto px-4 py-12">
 
-    <!-- Simple Repayment Estimator -->
-    <div class="bg-blue-50 p-4 rounded-xl mb-6">
-      <h3 class="font-semibold mb-2 text-blue-700">💰 Simple Repayment Estimator</h3>
+    <!-- Introduction -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-blue-700 mb-4">💠 What is Qard Hasan?</h2>
+      <p>
+        Qard Hasan is an Islamic **interest-free loan** offered to individuals or businesses in need,
+        without expecting any profit in return. It is usually provided to promote social welfare,
+        education, healthcare, or small business support.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mt-3">
+        <li>Promotes social welfare and community development</li>
+        <li>Completely interest-free financial assistance</li>
+        <li>Reflects the social responsibility of Islamic financial institutions</li>
+      </ul>
+    </section>
 
-      <label class="block mb-2">Loan Amount (PKR):</label>
-      <input id="loanAmount" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 50000">
+    <!-- Calculator -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-12">
+      <h3 class="text-2xl font-semibold text-green-700 mb-3">💰 Qard Hasan Repayment Estimator</h3>
+      <p class="text-gray-600 mb-4">Estimate your monthly repayment amount for an interest-free Qard Hasan loan.</p>
 
-      <label class="block mb-2">Number of Months:</label>
-      <input id="loanMonths" type="number" class="border p-2 rounded w-full mb-3" placeholder="e.g. 10">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1 font-medium">Loan Amount (PKR):</label>
+          <input id="loanAmount" type="number" class="border p-2 rounded w-full" placeholder="e.g. 50,000">
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Number of Months:</label>
+          <input id="loanMonths" type="number" class="border p-2 rounded w-full" placeholder="e.g. 10">
+        </div>
+      </div>
 
-      <button onclick="calculateQardHasan()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
-        Calculate Monthly Payment
+      <button onclick="calculateQardHasan()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4">
+        Calculate Repayment
       </button>
 
       <p id="qardResult" class="mt-3 font-semibold text-blue-800"></p>
+    </section>
+
+    <!-- Benefits -->
+    <section>
+      <h2 class="text-3xl font-bold text-blue-700 mb-4">🌟 Benefits of Qard Hasan</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Encourages charity and financial inclusion</li>
+        <li>Interest-free and Shariah-compliant model</li>
+        <li>Helps those in genuine need without burden</li>
+        <li>Promotes community support and compassion</li>
+      </ul>
+    </section>
+
+    <!-- Back Button -->
+    <div class="text-center mt-10">
+      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md">
+        ← Back to Home Page
+      </a>
     </div>
 
-    <a href="index.html" class="text-green-700 hover:underline">← Back to Home Page</a>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white text-center p-4 mt-8">
-    <div class="space-x-4">
+  <!-- 🌈 FOOTER -->
+  <footer class="site-footer">
+    <div class="space-x-4 mb-2">
       <a href="#" class="hover:underline">About Us</a>
       <a href="#" class="hover:underline">Contact</a>
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Disclaimer</a>
     </div>
-    <p class="text-sm mt-2">© 2025 Islamic Loan Compare PK</p>
+    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
   </footer>
 
+  <!-- ⚙️ Script -->
   <script>
     function calculateQardHasan() {
       const amount = parseFloat(document.getElementById('loanAmount').value);
       const months = parseFloat(document.getElementById('loanMonths').value);
 
       if (isNaN(amount) || isNaN(months) || months <= 0) {
-        document.getElementById('qardResult').innerText = "⚠️ Please enter valid values.";
+        document.getElementById('qardResult').innerText = "⚠️ Please enter valid numbers.";
         return;
       }
 
-      const monthlyPayment = amount / months;
-      document.getElementById('qardResult').innerText = 
-        `Your estimated monthly repayment is PKR ${monthlyPayment.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+      const monthly = amount / months;
+      document.getElementById('qardResult').innerText =
+        `Your estimated monthly repayment is PKR ${monthly.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
     }
   </script>
 
 </body>
 </html>
+

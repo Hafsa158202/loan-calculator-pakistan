@@ -561,81 +561,9 @@
   </footer>
 
   <!-- JAVASCRIPT (menu toggle + tab behavior placeholders) -->
-  <script>
-    // Slide-out menu controls
-    const openBtn = document.getElementById('openMenuBtn');
-    const closeBtn = document.getElementById('closeMenuBtn');
-    const sideMenu = document.getElementById('sideMenu');
-    const overlay = document.getElementById('menuOverlay');
+  
+        <script src="script.js?v=2"></script>
 
-    function openMenu() {
-      sideMenu.classList.add('open');
-      overlay.classList.add('open');
-      sideMenu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-      sideMenu.classList.remove('open');
-      overlay.classList.remove('open');
-      sideMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-    openBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    // close menu with Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-
-    // Basic tab switching logic (keeps your original behavior)
-    function showTab(tabId) {
-      const forms = document.querySelectorAll('.loan-form, .comparison-form, .interest-form, .murabaha-form, .musharakah-form');
-      forms.forEach(f => f.classList.remove('active'));
-      const btns = document.querySelectorAll('.tab-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      // activate appropriate form and button
-      if (tabId === 'car') {
-        document.getElementById('carForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'home') {
-        document.getElementById('homeForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'personal') {
-        document.getElementById('personalForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'compare') {
-        document.getElementById('compareForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'interest') {
-        document.getElementById('interestForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'murabaha') {
-        document.getElementById('murabahaForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      } else if (tabId === 'musharakah') {
-        document.getElementById('musharakahForm').classList.add('active');
-        event?.target?.classList?.add('active');
-      }
-    }
-
-    // small helpers used in original code (reset & calculator placeholders)
-    function resetForm(id){ const f = document.getElementById(id); if(f) f.reset(); }
-    // Placeholder calculators (if you have functions in script.js, they will be used instead)
-    function calcLoan(type){ 
-      try {
-        // if user has script.js with functions, they'll run instead
-        if (typeof window.calcLoan === 'function' && window.calcLoan !== calcLoan) {
-          window.calcLoan(type); return;
-        }
-      } catch(e){}
-      alert('Calculate called for: ' + type + '\n(If you have script.js with calculators, it will override this placeholder)');
-    }
-    function compareLoans(){ alert('Compare Loans - placeholder'); }
-    function calcInterest(){ alert('Interest calc - placeholder'); }
-    function calcMurabaha(){ alert('Murabaha calc - placeholder'); }
-    function calcMusharakah(){ alert('Musharakah calc - placeholder'); }
-  </script>
 
 </body>
 </html>

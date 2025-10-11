@@ -561,8 +561,34 @@
   </footer>
 
   <!-- JAVASCRIPT (menu toggle + tab behavior placeholders) -->
-  
-        <script src="script.js?v=2"></script>
+  <script>
+  // ===== MENU TOGGLE FUNCTIONALITY =====
+  const sideMenu = document.getElementById("sideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const openMenuBtn = document.getElementById("openMenuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+  function openMenu() {
+    sideMenu.classList.add("open");
+    menuOverlay.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    menuOverlay.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+  }
+
+  // Event listeners
+  if (openMenuBtn && closeMenuBtn) {
+    openMenuBtn.addEventListener("click", openMenu);
+    closeMenuBtn.addEventListener("click", closeMenu);
+  }
+</script>
+
+       
+ <script src="script.js?v=2"></script>
 
 
 </body>

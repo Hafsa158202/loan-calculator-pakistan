@@ -4,15 +4,8 @@
 body {
   font-family: 'Poppins', sans-serif;
   
-  background: linear-gradient(90deg, #8a2be2 0%, #b666ff 100%);
-  
-  /* White text for contrast */
-  color: #ffffff;
-  
-
-
-
-
+background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
+  color: #333;
   margin: 0;
   padding: 0;
   line-height: 1.6;

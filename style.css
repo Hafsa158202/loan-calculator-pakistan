@@ -197,7 +197,7 @@ ul, ol {
 }
 /* ==== Hero Section Text Fix ==== */
 .hero-gradient {
-  background: linear-gradient(135deg, #9b59ff, #b666ff);
+  background: linear-gradient(90deg, #3a0ca3, #7209b7, #4361ee);
   color: white;
 }
 .hero-gradient h1,

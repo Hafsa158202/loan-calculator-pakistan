@@ -3,8 +3,11 @@
 /* ---------- Base Styles ---------- */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
-  color: #333;
+  
+  background: linear-gradient(90deg,#e8d9ff 0%, #f3eaff 100%);
+  color: #000;
+
+
   margin: 0;
   padding: 0;
   line-height: 1.6;

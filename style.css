@@ -1,6 +1,8 @@
 /* 🌿 Islamic Loan Compare PK — Unified Theme CSS */
 
 /* ---------- Base Styles ---------- */
+<body class="index-page">
+
 body {
   font-family: 'Poppins', sans-serif;
   
@@ -206,5 +208,9 @@ ul, ol {
 }
 
   text-shadow: none;
+}
+/* ---------- Apply new colorful header only on index page ---------- */
+body.index-page .site-header {
+  background: linear-gradient(90deg, #81c784, #64b5f6, #9575cd) !important;
 }
 

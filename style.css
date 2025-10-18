@@ -1,11 +1,9 @@
 /* 🌿 Islamic Loan Compare PK — Unified Theme CSS */
 
 /* ---------- Base Styles ---------- */
-
 body {
   font-family: 'Poppins', sans-serif;
-  
-background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
+  background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
   color: #333;
   margin: 0;
   padding: 0;
@@ -13,7 +11,7 @@ background: linear-gradient(135deg, #e0f2f1, #e3f2fd, #ede7f6);
 }
 
 h1, h2, h3, h4 {
-  color: #1e3a8a; /* Deep blue tone */
+  color: #1e3a8a;
   font-weight: 700;
 }
 
@@ -65,7 +63,7 @@ p {
   margin-right: 0.3rem;
 }
 
-/* Navigation */
+/* ---------- Navigation ---------- */
 .main-nav {
   display: flex;
   gap: 1rem;
@@ -84,7 +82,7 @@ p {
   border-bottom: 2px solid white;
 }
 
-/* ---------- Mobile Menu ---------- */
+/* ---------- Mobile Menu Toggle ---------- */
 .nav-toggle {
   display: none;
   font-size: 1.5rem;
@@ -94,41 +92,103 @@ p {
   cursor: pointer;
 }
 
+/* ✅ Final Clean Mobile Menu */
 .side-menu {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 70%;
+  width: 75%;
   height: 100%;
-  background: white;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
   transition: left 0.3s ease;
   z-index: 2000;
-}
-.side-menu.open {
-  left: 0;
-}
-.side-menu a {
-  display: block;
-  color: #374151;
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-.side-menu a:hover {
-  color: #2e7d32;
-}
-.side-menu .close-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  float: right;
-  cursor: pointer;
-  color: #333;
+  overflow-y: auto; /* enable scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
 }
 
-/* Responsive Header */
+.side-menu.open {
+  left: 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.side-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.side-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* ---------- Mobile Menu Inner Elements ---------- */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.menu-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* ---------- Menu Links ---------- */
+.menu-links {
+  padding-top: 0.5rem;
+}
+
+.menu-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.menu-links a strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.menu-links a .meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.menu-links a:hover {
+  background: #f3f8ff;
+  color: #0b6efd;
+  transform: translateX(3px);
+}
+
+.menu-links a.home-link {
+  background: #f1f7ff;
+}
+.menu-links a.home-link strong {
+  color: #0b6efd;
+}
+
+/* ---------- Responsive Header ---------- */
 @media (max-width: 768px) {
   .main-nav {
     display: none;
@@ -196,7 +256,8 @@ section {
 ul, ol {
   color: #374151;
 }
-/* ==== Hero Section Text Fix ==== */
+
+/* ---------- Hero Section Text Fix ---------- */
 .hero-gradient {
   background: linear-gradient(90deg, #3a0ca3, #7209b7, #4361ee);
   color: white;
@@ -206,148 +267,6 @@ ul, ol {
   color: white;
 }
 
-  text-shadow: none;
-}
-
-
-/* ---------- Smooth scroll and full height fix ---------- */
-.side-menu {
-  overflow-y: auto; /* allow scroll if many links */
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Scrollbar style (optional, looks neat) */
-.side-menu::-webkit-scrollbar {
-  width: 6px;
-}
-.side-menu::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 10px;
-}
-.side-menu::-webkit-scrollbar-thumb:hover {
-  background-color: #aaa;
-}
-
-/* ---------- Menu animation polish ---------- */
-.side-menu.open {
-  right: 0;
-  box-shadow: -6px 0 18px rgba(0,0,0,0.1);
-}
-/* 🌿 Mobile Menu Final Clean Design */
-.menu-links {
-  padding-top: 0.5rem;
-}
-
-.menu-links a {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  text-decoration: none;
-  color: #111827;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.menu-links a strong {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.menu-links a .meta {
-  font-size: 0.85rem;
-  color: #6b7280; /* subtle gray */
-  font-weight: 400;
-}
-
-.menu-links a:hover {
-  background: #f3f8ff;
-  color: #0b6efd;
-  transform: translateX(3px);
-}
-
-/* 🌈 Active link (like Home) */
-.menu-links a.home-link {
-  background: #f1f7ff;
-}
-
-.menu-links a.home-link strong {
-  color: #0b6efd;
-}
-
-/* 🌿 Mobile Menu Final Clean Design */
-.menu-links {
-  padding-top: 0.5rem;
-}
-
-.menu-links a {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  text-decoration: none;
-  color: #111827;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.menu-links a strong {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.menu-links a .meta {
-  font-size: 0.85rem;
-  color: #6b7280;
-  font-weight: 400;
-}
-
-.menu-links a:hover {
-  background: #f3f8ff;
-  color: #0b6efd;
-  transform: translateX(3px);
-}
-
-/* 🌈 Active link (like Home) */
-.menu-links a.home-link {
-  background: #f1f7ff;
-}
-
-.menu-links a.home-link strong {
-  color: #0b6efd;
-}
-
-/* 🌿 Menu Header */
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.menu-header h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.menu-close {
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  color: #374151;
-  cursor: pointer;
-}
-
-/* 🌿 Scroll Fix */
-.side-menu {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 
 

@@ -208,5 +208,42 @@ ul, ol {
 
   text-shadow: none;
 }
+/* ---------- Home link spacing fix ---------- */
+.menu-links .home-link strong {
+  display: inline-block;
+  margin-right: 6px; /* adds small gap between Home and subtitle */
+}
+
+/* ---------- Smooth scroll and full height fix ---------- */
+.side-menu {
+  overflow-y: auto; /* allow scroll if many links */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar style (optional, looks neat) */
+.side-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.side-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* ---------- Menu animation polish ---------- */
+.side-menu.open {
+  right: 0;
+  box-shadow: -6px 0 18px rgba(0,0,0,0.1);
+}
+
+/* Slight hover effect for the entire menu link row */
+.menu-links a:hover {
+  background: #eef6ff;
+  color: #0b6efd;
+  transform: translateX(3px);
+  transition: 0.2s ease;
+}
 
 

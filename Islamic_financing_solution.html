@@ -9,131 +9,124 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+
+  <style>
+    /* 🌙 Overlay Styling */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+      z-index: 1500;
+    }
+    .menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 🌙 Side Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+      transition: right 0.3s ease;
+      z-index: 1600;
+      overflow-y: auto;
+      padding-bottom: 2rem;
+    }
+    .side-menu.open {
+      right: 0;
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .menu-links a {
+      display: block;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #f1f1f1;
+      color: #333;
+      text-decoration: none;
+    }
+    .menu-links a:hover {
+      background: #f9fafb;
+      color: #0b6efd;
+    }
+    body.no-scroll {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 text-gray-800">
 
-  <!-- 🌙 HEADER (Top Navigation) -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <span class="badge">PK</span> Islamic Loan Compare
-    </a>
+  <!-- 🌙 HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="badge">PK</span> Islamic Loan Compare
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="comparison.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="openMenuBtn" class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
 
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="comparison.html" class="nav-link">Compare</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+  <!-- 🌙 Overlay -->
+  <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
+
+  <!-- 🌙 Slide-out Mobile Side Menu -->
+  <aside id="sideMenu" class="side-menu" aria-hidden="true">
+    <div class="menu-header">
+      <h3>Menu</h3>
+      <button class="menu-close" id="closeMenuBtn" aria-label="Close menu">✕</button>
+    </div>
+
+    <nav class="menu-links" role="navigation" aria-label="Main menu">
+      <a href="index.html"><strong>Home</strong><span class="meta">Back to calculator</span></a>
+      <a href="HBL_personal_loan.html"><strong>HBL Personal Loan</strong></a>
+      <a href="Islamic_financing_solution.html"><strong>Islamic Financing Solution</strong></a>
+      <a href="bank_alfalah_loan.html"><strong>Bank Alfalah Loan</strong></a>
+      <a href="car-loan-page.html"><strong>Car Loans (Top Banks)</strong></a>
+      <a href="flat-vs-reducing.html"><strong>Flat vs Reducing</strong></a>
+      <a href="ijarah.html"><strong>Ijarah</strong></a>
+      <a href="istisna.html"><strong>Istisna</strong></a>
+      <a href="loan_comparision.html"><strong>Loan Comparison</strong></a>
+      <a href="meezan_bank_personal_finance.html"><strong>Meezan Bank Finance</strong></a>
+      <a href="mudarabah.html"><strong>Mudarabah</strong></a>
+      <a href="personal_loan.html"><strong>Personal Loans</strong></a>
+      <a href="qard_hasan.html"><strong>Qard Hasan</strong></a>
+      <a href="salam.html"><strong>Salam</strong></a>
+      <a href="ubl_personal_loan.html"><strong>UBL Personal Loan</strong></a>
+      <a href="wadiah.html"><strong>Wadiah</strong></a>
+      <hr style="margin:10px 0; border:none; border-top:1px solid #eee;">
+      <a href="about.html"><strong>About Us</strong></a>
+      <a href="contact.html"><strong>Contact</strong></a>
+      <a href="privacy.html"><strong>Privacy Policy</strong></a>
+      <a href="disclaimer.html"><strong>Disclaimer</strong></a>
     </nav>
+  </aside>
 
-    <button id="openMenuBtn" class="nav-toggle" aria-label="Open menu">☰</button>
-  </div>
-</header>
-
-<!-- 🌙 Overlay -->
-<div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
-
-<!-- 🌙 Slide-out Mobile Side Menu -->
-<aside id="sideMenu" class="side-menu" aria-hidden="true">
-  <div class="menu-header">
-    <h3>Menu</h3>
-    <button class="menu-close" id="closeMenuBtn" aria-label="Close menu">✕</button>
-  </div>
-
-  <nav class="menu-links" role="navigation" aria-label="Main menu">
-    <a href="index.html" class="home-link">
-      <strong>Home</strong>
-      <span class="meta">Back to calculator</span>
-    </a>
-
-    <a href="HBL_personal_loan.html">
-      <strong>HBL Personal Loan</strong>
-      <span class="meta">HBL Personal Loan 2025</span>
-    </a>
-
-    <a href="Islamic_financing_solution.html">
-      <strong>Islamic Financing Solution</strong>
-      <span class="meta">Islamic Finance 2025</span>
-    </a>
-
-    <a href="bank_alfalah_loan.html">
-      <strong>Bank Alfalah Loan</strong>
-      <span class="meta">Bank Alfalah Personal Loan</span>
-    </a>
-
-    <a href="car-loan-page.html">
-      <strong>Car Loans (Top Banks)</strong>
-      <span class="meta">Top Car Loans in Pakistan</span>
-    </a>
-
-    <a href="flat-vs-reducing.html">
-      <strong>Flat vs Reducing</strong>
-      <span class="meta">Flat vs Reducing Loan 2025</span>
-    </a>
-
-    <a href="ijarah.html">
-      <strong>Ijarah</strong>
-      <span class="meta">Islamic Leasing</span>
-    </a>
-
-    <a href="istisna.html">
-      <strong>Istisna</strong>
-      <span class="meta">Manufacturing Contract</span>
-    </a>
-
-    <a href="loan_comparision.html">
-      <strong>Loan Comparison</strong>
-      <span class="meta">Compare Banks</span>
-    </a>
-
-    <a href="meezan_bank_personal_finance.html">
-      <strong>Meezan Bank Finance</strong>
-      <span class="meta">Meezan Bank Personal Finance</span>
-    </a>
-
-    <a href="mudarabah.html">
-      <strong>Mudarabah</strong>
-      <span class="meta">Islamic Profit Sharing</span>
-    </a>
-
-    <a href="personal_loan.html">
-      <strong>Personal Loans</strong>
-      <span class="meta">Best Personal Loans 2025</span>
-    </a>
-
-    <a href="qard_hasan.html">
-      <strong>Qard Hasan</strong>
-      <span class="meta">Interest-Free Loan</span>
-    </a>
-
-    <a href="salam.html">
-      <strong>Salam</strong>
-      <span class="meta">Advance Payment Contract</span>
-    </a>
-
-    <a href="ubl_personal_loan.html">
-      <strong>UBL Personal Loan</strong>
-      <span class="meta">UBL Bank Financing</span>
-    </a>
-
-    <a href="wadiah.html">
-      <strong>Wadiah</strong>
-      <span class="meta">Safekeeping Account</span>
-    </a>
-
-    <!-- 📄 Static bottom links -->
-    <hr style="margin:10px 0; border:none; border-top:1px solid #eee;">
-    <a href="about.html"><strong>About Us</strong></a>
-    <a href="contact.html"><strong>Contact</strong></a>
-    <a href="privacy.html"><strong>Privacy Policy</strong></a>
-    <a href="disclaimer.html"><strong>Disclaimer</strong></a>
-  </nav>
-</aside>
-
-  <!-- 💙 HERO SECTION -->
+  <!-- 💙 HERO -->
   <section class="hero-gradient text-white py-20 text-center">
     <div class="container mx-auto px-4" data-aos="fade-up">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">Islamic Financing Solutions for Pakistan</h1>
@@ -141,31 +134,22 @@
         Compare Murabaha and Musharakah financing options for your car and home needs in 2025
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#murabahaForm" class="bg-white text-blue-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
-          Murabaha Calculator
-        </a>
-        <a href="#musharakahForm" class="bg-emerald-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-emerald-600 transition">
-          Musharakah Calculator
-        </a>
+        <a href="#murabahaForm" class="bg-white text-blue-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">Murabaha Calculator</a>
+        <a href="#musharakahForm" class="bg-emerald-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-emerald-600 transition">Musharakah Calculator</a>
       </div>
     </div>
   </section>
 
   <!-- 🧮 MAIN CONTENT -->
   <main class="container mx-auto px-4 py-12">
-
     <section class="mb-16 grid md:grid-cols-2 gap-8" data-aos="fade-up">
       <div>
         <h2 class="text-3xl font-bold text-blue-600 mb-4">Murabaha Financing</h2>
-        <p class="text-gray-600 mb-4">
-          Cost-plus financing where the bank buys an asset and sells it at an agreed markup in installments.
-        </p>
+        <p class="text-gray-600 mb-4">Cost-plus financing where the bank buys an asset and sells it at an agreed markup in installments.</p>
       </div>
       <div>
         <h2 class="text-3xl font-bold text-emerald-600 mb-4">Diminishing Musharakah</h2>
-        <p class="text-gray-600 mb-4">
-          Bank and customer jointly own property; customer gradually buys bank’s share while paying rent.
-        </p>
+        <p class="text-gray-600 mb-4">Bank and customer jointly own property; customer gradually buys bank’s share while paying rent.</p>
       </div>
     </section>
 
@@ -174,7 +158,7 @@
       <div class="grid md:grid-cols-2 gap-8">
 
         <!-- Murabaha -->
-        <div id="murabahaForm" class="bg-white p-6 rounded-xl shadow-lg calculator-card">
+        <div id="murabahaForm" class="bg-white p-6 rounded-xl shadow-lg">
           <h3 class="text-2xl font-semibold text-blue-600 mb-4">Murabaha Calculator</h3>
           <input id="murabahaAmount" type="number" placeholder="Financing Amount (PKR)" class="w-full mb-2 px-4 py-2 border rounded-lg">
           <input id="murabahaTenure" type="number" placeholder="Tenure (Years)" class="w-full mb-2 px-4 py-2 border rounded-lg">
@@ -187,7 +171,7 @@
         </div>
 
         <!-- Musharakah -->
-        <div id="musharakahForm" class="bg-white p-6 rounded-xl shadow-lg calculator-card">
+        <div id="musharakahForm" class="bg-white p-6 rounded-xl shadow-lg">
           <h3 class="text-2xl font-semibold text-emerald-600 mb-4">Musharakah Calculator</h3>
           <input id="musharakahAmount" type="number" placeholder="Property Value (PKR)" class="w-full mb-2 px-4 py-2 border rounded-lg">
           <input id="musharakahTenure" type="number" placeholder="Tenure (Years)" class="w-full mb-2 px-4 py-2 border rounded-lg">
@@ -205,84 +189,73 @@
   </main>
 
   <!-- 🌿 FOOTER -->
-<section class="footer-links wrapper" aria-label="Footer links">
-  <!-- Column 1: Quick Links -->
-  <div class="footer-column">
-    <h3>Quick Links</h3>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="disclaimer.html">Disclaimer</a></li>
-    </ul>
-  </div>
+  <section class="footer-links wrapper" aria-label="Footer links">
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
 
-  <!-- Column 2: Islamic Banking Pages -->
-  <div class="footer-column">
-    <h3>Islamic Banking Pages</h3>
-    <ul>
-      <li><a href="HBL_personal_loan.html">HBL Personal Loan</a></li>
-      <li><a href="Islamic_financing_solution.html">Islamic Financing Solution</a></li>
-      <li><a href="bank_alfalah_loan.html">Bank Alfalah Loan</a></li>
-      <li><a href="car-loan-page.html">Car Loans (Top Banks)</a></li>
-      <li><a href="flat-vs-reducing.html">Flat vs Reducing</a></li>
-      <li><a href="ijarah.html">Ijarah (Islamic Leasing)</a></li>
-      <li><a href="istisna.html">Istisna (Manufacturing Contract)</a></li>
-      <li><a href="loan_comparision.html">Loan Comparison</a></li>
-      <li><a href="meezan_bank_personal_finance.html">Meezan Bank Finance</a></li>
-      <li><a href="mudarabah.html">Mudarabah (Profit Sharing)</a></li>
-      <li><a href="personal_loan.html">Personal Loans</a></li>
-      <li><a href="qard_hasan.html">Qard Hasan (Interest-Free Loan)</a></li>
-      <li><a href="salam.html">Salam (Advance Payment)</a></li>
-      <li><a href="ubl_personal_loan.html">UBL Personal Loan</a></li>
-      <li><a href="wadiah.html">Wadiah (Safekeeping)</a></li>
-    </ul>
-  </div>
-</section>
+    <div class="footer-column">
+      <h3>Islamic Banking Pages</h3>
+      <ul>
+        <li><a href="HBL_personal_loan.html">HBL Personal Loan</a></li>
+        <li><a href="Islamic_financing_solution.html">Islamic Financing Solution</a></li>
+        <li><a href="bank_alfalah_loan.html">Bank Alfalah Loan</a></li>
+        <li><a href="car-loan-page.html">Car Loans</a></li>
+        <li><a href="flat-vs-reducing.html">Flat vs Reducing</a></li>
+        <li><a href="ijarah.html">Ijarah</a></li>
+        <li><a href="istisna.html">Istisna</a></li>
+        <li><a href="loan_comparision.html">Loan Comparison</a></li>
+        <li><a href="meezan_bank_personal_finance.html">Meezan Bank Finance</a></li>
+        <li><a href="mudarabah.html">Mudarabah</a></li>
+        <li><a href="personal_loan.html">Personal Loans</a></li>
+        <li><a href="qard_hasan.html">Qard Hasan</a></li>
+        <li><a href="salam.html">Salam</a></li>
+        <li><a href="ubl_personal_loan.html">UBL Personal Loan</a></li>
+        <li><a href="wadiah.html">Wadiah</a></li>
+      </ul>
+    </div>
+  </section>
 
-<!-- Small bottom links -->
-<div class="footer-bottom">
-  <a href="about.html">About Us</a> ·
-  <a href="contact.html">Contact</a> ·
-  <a href="privacy.html">Privacy</a> ·
-  <a href="disclaimer.html">Disclaimer</a>
-</div>
+  <footer class="text-center text-gray-500 py-6">
+    <div>
+      <a href="about.html">About Us</a> ·
+      <a href="contact.html">Contact</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="mt-2">© 2025 Islamic Loan Compare PK — All Rights Reserved</p>
+  </footer>
 
-<!-- Copyright -->
-<footer class="site-footer" style="text-align:center; padding-bottom:28px; color:#6b7280;">
-  <span>© 2025 Islamic Loan Compare PK — All Rights Reserved</span>
-</footer>
-
-
-
-  <!-- ⚙️ Scripts -->
+  <!-- ⚙️ JS -->
   <script>
     AOS.init({ duration: 800, once: true });
     feather.replace();
-  
-  const sideMenu = document.getElementById("sideMenu");
-  const menuOverlay = document.getElementById("menuOverlay");
-  const openMenuBtn = document.getElementById("openMenuBtn");
-  const closeMenuBtn = document.getElementById("closeMenuBtn");
 
-  function openMenu() {
-    sideMenu.classList.add("open");
-    menuOverlay.classList.add("open");
-    sideMenu.setAttribute("aria-hidden", "false");
-  }
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const openMenuBtn = document.getElementById("openMenuBtn");
+    const closeMenuBtn = document.getElementById("closeMenuBtn");
 
-  function closeMenu() {
-    sideMenu.classList.remove("open");
-    menuOverlay.classList.remove("open");
-    sideMenu.setAttribute("aria-hidden", "true");
-  }
+    function openMenu() {
+      sideMenu.classList.add("open");
+      menuOverlay.classList.add("open");
+      document.body.classList.add("no-scroll");
+    }
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      menuOverlay.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    }
 
-  if (openMenuBtn && closeMenuBtn) {
     openMenuBtn.addEventListener("click", openMenu);
     closeMenuBtn.addEventListener("click", closeMenu);
-  }
-</script>
 
     // Murabaha Calculator
     document.querySelector('#murabahaForm button').addEventListener('click',function(){
@@ -313,7 +286,7 @@
       document.getElementById('musharakahResult').classList.remove('hidden');
     });
   </script>
-
 </body>
 </html>
+
 

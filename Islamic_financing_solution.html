@@ -204,21 +204,86 @@
     </section>
   </main>
 
-  <!-- 🌈 FOOTER -->
-  <footer class="site-footer">
-    <div class="space-x-4 mb-2">
-      <a href="#" class="hover:underline">About Us</a>
-      <a href="#" class="hover:underline">Contact</a>
-      <a href="#" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Disclaimer</a>
-    </div>
-    <p class="footer-copy">© 2025 Islamic Loan Compare PK. All rights reserved.</p>
-  </footer>
+  <!-- 🌿 FOOTER -->
+<section class="footer-links wrapper" aria-label="Footer links">
+  <!-- Column 1: Quick Links -->
+  <div class="footer-column">
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </div>
+
+  <!-- Column 2: Islamic Banking Pages -->
+  <div class="footer-column">
+    <h3>Islamic Banking Pages</h3>
+    <ul>
+      <li><a href="HBL_personal_loan.html">HBL Personal Loan</a></li>
+      <li><a href="Islamic_financing_solution.html">Islamic Financing Solution</a></li>
+      <li><a href="bank_alfalah_loan.html">Bank Alfalah Loan</a></li>
+      <li><a href="car-loan-page.html">Car Loans (Top Banks)</a></li>
+      <li><a href="flat-vs-reducing.html">Flat vs Reducing</a></li>
+      <li><a href="ijarah.html">Ijarah (Islamic Leasing)</a></li>
+      <li><a href="istisna.html">Istisna (Manufacturing Contract)</a></li>
+      <li><a href="loan_comparision.html">Loan Comparison</a></li>
+      <li><a href="meezan_bank_personal_finance.html">Meezan Bank Finance</a></li>
+      <li><a href="mudarabah.html">Mudarabah (Profit Sharing)</a></li>
+      <li><a href="personal_loan.html">Personal Loans</a></li>
+      <li><a href="qard_hasan.html">Qard Hasan (Interest-Free Loan)</a></li>
+      <li><a href="salam.html">Salam (Advance Payment)</a></li>
+      <li><a href="ubl_personal_loan.html">UBL Personal Loan</a></li>
+      <li><a href="wadiah.html">Wadiah (Safekeeping)</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Small bottom links -->
+<div class="footer-bottom">
+  <a href="about.html">About Us</a> ·
+  <a href="contact.html">Contact</a> ·
+  <a href="privacy.html">Privacy</a> ·
+  <a href="disclaimer.html">Disclaimer</a>
+</div>
+
+<!-- Copyright -->
+<footer class="site-footer" style="text-align:center; padding-bottom:28px; color:#6b7280;">
+  <span>© 2025 Islamic Loan Compare PK — All Rights Reserved</span>
+</footer>
+
+
 
   <!-- ⚙️ Scripts -->
   <script>
-    AOS.init({duration:800,once:true});
+    AOS.init({ duration: 800, once: true });
     feather.replace();
+  </script>
+  <script>
+  const sideMenu = document.getElementById("sideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const openMenuBtn = document.getElementById("openMenuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+  function openMenu() {
+    sideMenu.classList.add("open");
+    menuOverlay.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    menuOverlay.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+  }
+
+  if (openMenuBtn && closeMenuBtn) {
+    openMenuBtn.addEventListener("click", openMenu);
+    closeMenuBtn.addEventListener("click", closeMenu);
+  }
+</script>
 
     // Murabaha Calculator
     document.querySelector('#murabahaForm button').addEventListener('click',function(){

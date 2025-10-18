@@ -277,6 +277,77 @@ ul, ol {
   color: #0b6efd;
 }
 
+/* 🌿 Mobile Menu Final Clean Design */
+.menu-links {
+  padding-top: 0.5rem;
+}
+
+.menu-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.menu-links a strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.menu-links a .meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.menu-links a:hover {
+  background: #f3f8ff;
+  color: #0b6efd;
+  transform: translateX(3px);
+}
+
+/* 🌈 Active link (like Home) */
+.menu-links a.home-link {
+  background: #f1f7ff;
+}
+
+.menu-links a.home-link strong {
+  color: #0b6efd;
+}
+
+/* 🌿 Menu Header */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.menu-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* 🌿 Scroll Fix */
+.side-menu {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 
 

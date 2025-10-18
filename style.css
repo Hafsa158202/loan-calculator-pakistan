@@ -208,11 +208,7 @@ ul, ol {
 
   text-shadow: none;
 }
-/* ---------- Home link spacing fix ---------- */
-.menu-links .home-link strong {
-  display: inline-block;
-  margin-right: 6px; /* adds small gap between Home and subtitle */
-}
+
 
 /* ---------- Smooth scroll and full height fix ---------- */
 .side-menu {
@@ -238,12 +234,6 @@ ul, ol {
   box-shadow: -6px 0 18px rgba(0,0,0,0.1);
 }
 
-/* Slight hover effect for the entire menu link row */
-.menu-links a:hover {
-  background: #eef6ff;
-  color: #0b6efd;
-  transform: translateX(3px);
-  transition: 0.2s ease;
-}
+
 
 

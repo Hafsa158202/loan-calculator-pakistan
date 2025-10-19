@@ -16,31 +16,134 @@
 
 <body class="bg-gradient-to-br from-blue-50 via-purple-50 to-green-50 text-gray-800 flex flex-col min-h-screen">
 
-  <!-- 🌐 HEADER -->
-  <header class="site-header">
-    <div class="header-inner container mx-auto">
-      <a href="index.html" class="logo flex items-center">
-        <span class="badge">PK</span>
-        Islamic Loan Compare PK
-      </a>
-      <nav class="main-nav hidden md:flex space-x-6">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="personal-loan.html" class="nav-link active">Personal Loans</a>
-        <a href="car-loan.html" class="nav-link">Car Loans</a>
-        <a href="compare.html" class="nav-link">Compare Banks</a>
-      </nav>
-      <button class="nav-toggle md:hidden" onclick="document.querySelector('.side-menu').classList.add('open')">☰</button>
-    </div>
+    <!-- Tailwind + AOS + Feather Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
 
-    <!-- 📱 Mobile Menu -->
-    <div class="side-menu">
-      <button class="close-btn" onclick="document.querySelector('.side-menu').classList.remove('open')">✕</button>
-      <a href="index.html">Home</a>
-      <a href="personal-loan.html" class="active">Personal Loans</a>
-      <a href="car-loan.html">Car Loans</a>
-      <a href="compare.html">Compare Banks</a>
-    </div>
-  </header>
+<body class="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 text-gray-800 flex flex-col min-h-screen">
+
+<!-- 🌙 HEADER (Top Navigation) -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="badge">PK</span> Islamic Loan Compare
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="comparison.html" class="nav-link">Compare</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <button id="openMenuBtn" class="nav-toggle" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<!-- 🌙 Overlay -->
+<div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- 🌙 Slide-out Mobile Side Menu -->
+<aside id="sideMenu" class="side-menu" aria-hidden="true">
+  <div class="menu-header">
+    <h3>Menu</h3>
+    <button class="menu-close" id="closeMenuBtn" aria-label="Close menu">✕</button>
+  </div>
+
+  <nav class="menu-links" role="navigation" aria-label="Main menu">
+    <a href="index.html" class="home-link">
+      <strong>Home</strong>
+      <span class="meta">Back to calculator</span>
+    </a>
+
+    <a href="HBL_personal_loan.html">
+      <strong>HBL Personal Loan</strong>
+      <span class="meta">HBL Personal Loan 2025</span>
+    </a>
+
+    <a href="Islamic_financing_solution.html">
+      <strong>Islamic Financing Solution</strong>
+      <span class="meta">Islamic Finance 2025</span>
+    </a>
+
+    <a href="bank_alfalah_loan.html">
+      <strong>Bank Alfalah Loan</strong>
+      <span class="meta">Bank Alfalah Personal Loan</span>
+    </a>
+
+    <a href="car-loan-page.html">
+      <strong>Car Loans (Top Banks)</strong>
+      <span class="meta">Top Car Loans in Pakistan</span>
+    </a>
+
+    <a href="flat-vs-reducing.html">
+      <strong>Flat vs Reducing</strong>
+      <span class="meta">Flat vs Reducing Loan 2025</span>
+    </a>
+
+    <a href="ijarah.html">
+      <strong>Ijarah</strong>
+      <span class="meta">Islamic Leasing</span>
+    </a>
+
+    <a href="istisna.html">
+      <strong>Istisna</strong>
+      <span class="meta">Manufacturing Contract</span>
+    </a>
+
+    <a href="loan_comparision.html">
+      <strong>Loan Comparison</strong>
+      <span class="meta">Compare Banks</span>
+    </a>
+
+    <a href="meezan_bank_personal_finance.html">
+      <strong>Meezan Bank Finance</strong>
+      <span class="meta">Meezan Bank Personal Finance</span>
+    </a>
+
+    <a href="mudarabah.html">
+      <strong>Mudarabah</strong>
+      <span class="meta">Islamic Profit Sharing</span>
+    </a>
+
+    <a href="personal_loan.html">
+      <strong>Personal Loans</strong>
+      <span class="meta">Best Personal Loans 2025</span>
+    </a>
+
+    <a href="qard_hasan.html">
+      <strong>Qard Hasan</strong>
+      <span class="meta">Interest-Free Loan</span>
+    </a>
+
+    <a href="salam.html">
+      <strong>Salam</strong>
+      <span class="meta">Advance Payment Contract</span>
+    </a>
+
+    <a href="ubl_personal_loan.html">
+      <strong>UBL Personal Loan</strong>
+      <span class="meta">UBL Bank Financing</span>
+    </a>
+
+    <a href="wadiah.html">
+      <strong>Wadiah</strong>
+      <span class="meta">Safekeeping Account</span>
+    </a>
+
+    <!-- 📄 Static bottom links -->
+    <hr style="margin:10px 0; border:none; border-top:1px solid #eee;">
+    <a href="about.html"><strong>About Us</strong></a>
+    <a href="contact.html"><strong>Contact</strong></a>
+    <a href="privacy.html"><strong>Privacy Policy</strong></a>
+    <a href="disclaimer.html"><strong>Disclaimer</strong></a>
+  </nav>
+</aside>
+
 
   <!-- 🏦 HERO SECTION -->
   <section class="hero-gradient text-white py-16 text-center">

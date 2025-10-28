@@ -283,5 +283,41 @@ ul, ol {
   display: block !important;
 }
 
+/* ✅ Fix for Blogger iframe - Always show full hamburger menu with bottom links */
+.side-menu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(0) !important;
+}
+
+.menu-links a {
+  display: block !important;
+  color: #333 !important;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.menu-links a strong {
+  color: #111 !important;
+}
+
+.menu-header, .menu-close {
+  display: block !important;
+}
+
+hr {
+  display: block !important;
+}
+
+@media (min-width: 769px) {
+  /* Force hamburger to appear on desktop view too */
+  .nav-toggle {
+    display: block !important;
+  }
+  .main-nav {
+    display: none !important;
+  }
+}
 
 

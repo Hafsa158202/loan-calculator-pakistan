@@ -267,6 +267,21 @@ ul, ol {
   color: white;
 }
 
+/* 🪄 Force side menu links & footer to always be visible */
+.side-menu, .menu-links, .footer-links, .footer-bottom {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.side-menu a, .menu-links a {
+  color: #333 !important;
+  display: block !important;
+}
+
+.menu-header h3, .menu-close {
+  display: block !important;
+}
 
 
 

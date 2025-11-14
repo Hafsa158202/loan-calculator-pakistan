@@ -185,6 +185,28 @@
       <img src="image14.jpeg" alt="Qard Hasan Image 14" class="w-full h-56 object-cover rounded-xl shadow-md">
   
     </section>
+    <!-- Calculator -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-12">
+      <h3 class="text-2xl font-semibold text-green-700 mb-3">💰 Qard Hasan Repayment Estimator</h3>
+      <p class="text-gray-600 mb-4">Estimate your monthly repayment amount for an interest-free Qard Hasan loan.</p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1 font-medium">Loan Amount (PKR):</label>
+          <input id="loanAmount" type="number" class="border p-2 rounded w-full" placeholder="e.g. 50,000">
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Number of Months:</label>
+          <input id="loanMonths" type="number" class="border p-2 rounded w-full" placeholder="e.g. 10">
+        </div>
+      </div>
+
+      <button onclick="calculateQardHasan()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4">
+        Calculate Repayment
+      </button>
+
+      <p id="qardResult" class="mt-3 font-semibold text-blue-800"></p>
+        </section>
     <section class="mb-10 p-6 bg-white rounded-xl shadow-md" data-aos="fade-up">
 <h2 class="text-3xl font-bold text-emerald-600 mb-4">🌱 Why Qard Hasan Matters Today</h2>
 <p class="text-gray-600 mb-4">
@@ -218,28 +240,7 @@ Digital platforms have also made Qard Hasan easier and more transparent. Today, 
 </p>
     </section>
 
-    <!-- Calculator -->
-    <section class="bg-white p-6 rounded-xl shadow-lg mb-12">
-      <h3 class="text-2xl font-semibold text-green-700 mb-3">💰 Qard Hasan Repayment Estimator</h3>
-      <p class="text-gray-600 mb-4">Estimate your monthly repayment amount for an interest-free Qard Hasan loan.</p>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label class="block mb-1 font-medium">Loan Amount (PKR):</label>
-          <input id="loanAmount" type="number" class="border p-2 rounded w-full" placeholder="e.g. 50,000">
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Number of Months:</label>
-          <input id="loanMonths" type="number" class="border p-2 rounded w-full" placeholder="e.g. 10">
-        </div>
-      </div>
-
-      <button onclick="calculateQardHasan()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4">
-        Calculate Repayment
-      </button>
-
-      <p id="qardResult" class="mt-3 font-semibold text-blue-800"></p>
-    </section>
+    
     <section class="mb-10 p-6 bg-white rounded-xl shadow-md" data-aos="fade-up">
 <h2 class="text-3xl font-bold text-blue-600 mb-4">🌍 Qard Hasan in Modern Times</h2>
 <p class="text-gray-600 mb-4">
